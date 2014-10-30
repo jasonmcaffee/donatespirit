@@ -1,0 +1,221 @@
+@import "media-queries";
+
+
+html{
+    width:100%;
+    @extend %white-grey-gradient;
+}
+body{
+    width: 100%;
+}
+
+
+%main-section{
+    padding: 1% 5% 1% 5%;
+    h1{
+        font-size: 40px;
+        color:rgb(88,89, 91);
+    }
+}
+
+header{
+    color: rgb(241,242,242);
+
+    display: block;
+    width: 100%;
+    min-height:700px;
+    max-height: 600px;
+    height:30%;
+    max-width:1500px;
+
+    //center
+    margin-left: auto;
+    margin-right: auto;
+
+    background: #000000 url('../img/donate-banner.png') no-repeat bottom left;
+    //background: #000000 url('../img/donate-banner.png') no-repeat bottom left;
+    background-size: 100% 100%;
+}
+
+.header-content{
+    @extend %main-section;
+    //position: absolute;
+    //top:0;
+    width: 100%;
+    height:100%;
+    @extend %yellow-blue-gradient;
+
+    p{
+        font-size: 60px;
+    }
+}
+
+.top-nav{
+    h1{
+        display:inline-block;
+        width:50%;
+    }
+
+    div{
+        display:inline-block;
+        width:49%;
+        vertical-align: middle;
+        padding-bottom: 1%;
+
+        ul{
+            display:inline-block;
+            width:100%;
+            padding-left:1%;
+            li{
+                display:inline-block;
+                //width:25%;
+                padding-right: 20px;
+
+                a{
+                    text-decoration: none;
+                    color: rgb(241,242,242);
+                    font-size:150%;
+                }
+            }
+        }
+    }
+
+}
+
+.rules-section{
+    @extend %main-section;
+}
+
+//################################# media queries ################################################################
+//small media query
+@include mq(medium-and-below){
+    .top-nav{
+        h1{
+            width:100%;
+            text-align: center;
+            font-size:300%;
+        }
+        div{
+            width:100%;
+            padding-left:20%;
+            padding-right:20%;
+
+            ul{
+                text-align: center;
+                li{
+                    a{
+                        font-size:250%;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+//#################################### Gradients #######################################################################
+%yellow-blue-gradient{
+    background: -moz-linear-gradient(top,  rgba(167,176,27,0.76) 0%, rgba(0,116,159,0.76) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(167,176,27,0.76)), color-stop(100%,rgba(0,116,159,0.76))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(167,176,27,0.76) 0%,rgba(0,116,159,0.76) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(167,176,27,0.76) 0%,rgba(0,116,159,0.76) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(167,176,27,0.76) 0%,rgba(0,116,159,0.76) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(167,176,27,0.76) 0%,rgba(0,116,159,0.76) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2a7b01b', endColorstr='#c200749f',GradientType=0 ); /* IE6-9 */
+}
+
+%white-grey-gradient{
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(32%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 32%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 32%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 32%,rgba(237,237,237,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 32%,rgba(237,237,237,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+
+}
+
+//#################################### Fonts ###########################################################################
+
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('../fonts/caviardreams-webfont.eot');
+    src: url('../fonts/caviardreams-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/caviardreams-webfont.woff2') format('woff2'),
+    url('../fonts/caviardreams-webfont.woff') format('woff'),
+    url('../fonts/caviardreams-webfont.ttf') format('truetype'),
+    url('../fonts/caviardreams-webfont.svg#caviar_dreamsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+//#################################### RESET ###########################################################################
+*{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+  */
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+ul{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+html, body{
+    height:100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    font-family:  "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean;
+}
+a{
+    //color: rgb(87,187,228);
+}
+h1{
+    font-size:60px;
+    //color: rgb(0,174,239); //blue
+    //color: rgb(87,187,228); //blue
+}
+h2{
+    font-size:32px;
+    //color: rgb(57,181,74); //green
+    //color: rgb(65,64,66); //dark grey
+}
+h3 {
+    font-size: 24px;
+    //color: #848484;
+}
+
+h4 {
+    font-size:20px;
+    //color: #A5A5A5;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean;
+    //color: rgb(233,233,234); //light grey
+    //color: rgb(65,64,66); //dark grey
+    //color: rgb(0,174,239); //blue
+    //color: rgb(57,181,74); //green
+    margin-bottom: 0px;
+    margin-top:0px;
+    -webkit-text-stroke-width: .1px;
+    -webkit-text-stroke-color: rgba(147,149,152, .1);
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    //text-shadow:
+    //    -1px -1px 0 rgba(147,149,152, .4),
+    //    1px -1px 0 rgba(147,149,152, .4),
+    //    -1px 1px 0 rgba(147,149,152, .4),
+    //    1px 1px 0 rgba(147,149,152, .4);
+    //text-shadow: 1px 1px rgba(147,149,152,.8), -1px -1px rgba(147,149,152,.5);
+}
+
+p{
+    font-size: 21px;
+}

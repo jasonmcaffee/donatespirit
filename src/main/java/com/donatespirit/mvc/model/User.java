@@ -1,5 +1,8 @@
 package com.donatespirit.mvc.model;
 
+//http://gerrydevstory.com/2013/06/29/spring-mvc-hibernate-mysql-quick-start-from-scratch/
+
+
 import java.util.List;
 
 
@@ -12,11 +15,11 @@ import javax.persistence.Table;
 //
 //
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
 public class User {
     @Id @GeneratedValue private long id;
     private String userName;
-    private double password;
+    private String password;
 
 //    @OneToMany(mappedBy = "pizza", fetch = FetchType.LAZY)
 //    private List<Topping> toppings;
@@ -35,10 +38,10 @@ public class User {
     public void setUserName(String name) {
         this.userName = name;
     }
-    public double getPassword() {
+    public String getPassword() {
         return password;
     }
-    public void setPassword(double password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

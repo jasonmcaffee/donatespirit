@@ -14,4 +14,5 @@ m(function($){
     var $out = $('#out');
     $out.html('done loading');
 
-})
+    $.ajax({url:'ajaxTest', dataType:'JSON',contentType: "application/json", data:1}).done(function(data){console.log(JSON.stringify(data));});
+});

@@ -44,7 +44,7 @@
         <property name="dataSource" ref="myDataSource"/>
         <property name="packagesToScan">
             <array>
-                <value>com.gerrytan.pizzashop</value>
+                <value>com.donatespirit.mvc</value>
             </array>
         </property>
         <property name="hibernateProperties">

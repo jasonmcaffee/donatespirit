@@ -1,0 +1,16 @@
+http://dev.mysql.com/doc/refman/5.0/en/macosx-installation.html
+
+sudo /usr/local/mysql/bin/mysqld -u root
+
+no
+sudo /Library/StartupItems/MySQLCOM/MySQLCOM start
+
+
+
+CREATE TABLE donatespirit.users
+(
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    username char(50) NOT NULL,
+    password char(50) NOT NULL
+);
+ALTER TABLE donatespirit.users ADD CONSTRAINT unique_username UNIQUE (username);

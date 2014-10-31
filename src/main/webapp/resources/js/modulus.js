@@ -25,7 +25,7 @@
 //    }
 
     var defaults = {
-        context: modulusContext, //by default we use the window for the context. e.g. function moduleA(){} ends up on the window.
+        //context: modulusContext, //by default we use the window for the context. e.g. function moduleA(){} ends up on the window.
         _modules: {
 //             'moduleX':{
 //                 name: moduleMeta.name,
@@ -38,6 +38,14 @@
 //                 context: moduleMeta.context //the 'this' for the module init
 //             }
         },
+        /**
+         * The object which will be referenced to retrieve the shim's exports.
+         * e.g. _shimContext['$']
+         * Typically this should be window. Primarily exposed in order to property unit test ie8, as it has a bug around deleting from the window object.
+         * By specifying a custom shim context, we can assign and delete in ie8 so that we can properly reset before performing a test.
+         */
+        _shimContext: window,
+
         /**
          * Hash of module names to 'path', where path can be any value you want to represent the file location.
          * If you use this option, you must implement asyncFileLoad
@@ -142,7 +150,8 @@
                 var errorMessage = 'modulus: error initializing module.name: ' + (module.name || 'anonymous' )+ '\n error:'; //+ ' \n error: ' + e
                 //console.error(errorMessage);
                 e.message = errorMessage + e.message;
-                throw e; //do not swallow exceptions! if there's any error in the module init, we need to let it propogate.
+                if(errorback){errorback(e)}else{throw e;};
+                // throw e; //do not swallow exceptions! if there's any error in the module init, we need to let it propogate.
             }
         },
 
@@ -275,7 +284,11 @@
                     callback(module);
                 }
             })(module), function(error){
-                errorback(error);
+                if(errorback){
+                    errorback(error);
+                }else{
+                    throw error;
+                }
             });
         },
 
@@ -356,11 +369,17 @@
          * Adds the module to this._modules.
          * e.g. this.modules[module.name] = module
          * If the module is already added, it will not be overridden, unless it is a shim
+         *
+         * When using AMD, this function usually gets called twice for a module:
+         * 1- something requires a module which hasn't been loaded yet. This function gets called to store a partial version of the module.
+         * 2- the module loads (usually a result of something requiring it) and this function is called to fill in the blanks (deps, init function, etc)
+         * see _getModules
          * @param module - the module you wish to register.
          */
         _registerModule: function(module){
             //log('_registerModule called for module.name %s', module.name);
             //if we're in amd mode we need to modify the current module to add dependencies, etc.
+            //this code block is executed when the module gets loaded and registered. (the second call to this function regarding the module.)
             if(this._modules[module.name] && this._modules[module.name].isPartial){
                 //don't just reassign it because it has other references in initModules, etc.
                 //TODO: create a copy function for this so we don't miss stuff.
@@ -409,7 +428,7 @@
             var module={
                 name: moduleName,
                 paths: moduleMeta.paths,
-                dependencies : this._parseFunctionDependencies(func),
+                dependencies : moduleMeta.deps || this._parseFunctionDependencies(func),
                 resolvedDeps: undefined,
                 autoInit: moduleMeta.autoInit, //whether the module should be evaluated before any one else asks for it.
                 init: func,
@@ -467,8 +486,11 @@
          * @returns {boolean} - whether val is a module.
          */
         _isModule: function(val, context, key){
-            var isModule = false;
-            if(context.hasOwnProperty(key) && typeof val === "function"){
+            var isModule = false,
+            //ie8 intermittently doesnt support window.hasOwnProperty
+                existsInContext = context.hasOwnProperty? context.hasOwnProperty(key) : Object.prototype.hasOwnProperty.call(context, key);
+
+            if(existsInContext && typeof val === "function"){
                 isModule = true;
             }
             return isModule;
@@ -498,7 +520,7 @@
          */
         _resolveModule: function(module){
             try{
-                module.initResult = module.init.apply(null, module.resolvedDependencies);
+                module.initResult = module.init.apply(null, module.resolvedDependencies || []);//fix for ie8 bug. must have value for apply
                 module.isInitialized = true;
             }catch(e){
                 throw e;
@@ -512,7 +534,7 @@
          */
         _resolveShim:function(shimName, shimConfig){
             var result = {};
-            result.shimResult = window[shimConfig.exports];
+            result.shimResult = this._shimContext[shimConfig.exports];
             result.success = typeof result.shimResult != 'undefined';
             return result;
         },
@@ -560,29 +582,94 @@
                 foundModules = shimModules.concat(foundModules);//foundModules.concat(shimModules);
             }
             this._registerModules(foundModules);
+        },
+        /**
+         * Async file path base url for dynamically loaded modules
+         * By default we assume that all js is located in src/js
+         */
+        baseUrl: 'src/js/',
+        paths:{},
+        asyncFileLoad:function(moduleName, callback, errorback){
+            var path = this.paths[moduleName];
+            var url = this.baseUrl + (path ? path : moduleName);
+            this._asyncFileLoad(url, callback, errorback);
+        },
+
+        /**
+         * TODO: Handle errors in loading (404, etc)
+         * Loads a script file using the specified path as the source.
+         * Primarily called on by asyncFileLoad.
+         * If you need to override the way files are loaded, you are encouraged to try overridding asyncFileLoad first.
+         * @param path - path to script
+         * @param callback - function to call once load has completed
+         * @param errorback - function to call if there is issue loading the file
+         */
+        _asyncFileLoad:function(path, callback, errorback){
+            var head = document.getElementsByTagName("head")[0];
+            var script = document.createElement("script");
+
+            script.type = "text/javascript";
+            script.src = path;
+
+            //closure for callbacks
+            function loaded(){callback();}
+            function error(){errorback();}
+
+            //ie support.
+            script.onreadystatechange = function(){
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                    loaded();
+                }
+            };
+            //browsers other than ie.
+            script.onload = function(){
+                loaded();
+            };
+
+            head.appendChild(script);
         }
     };
 
     /**
-     * The modulus.
-     * This function represents require and define.
+     * The modulus function.
+     * This function represents several options/method signatures which achieve equivalents of traditional require and define functions.
      * If you pass in a named function, it will be defined, and the function will not be executed immediately.
      * If you pass in a unnamed function, it will act as require, and the function will be executed immediately and passed its dependencies.
+     *
+     * Usages:
+     * 1. normal define : m(function moduleName(dependencyName1, dependencyName2){...}, {metadata})
+     * 2. explicit define :  m('moduleName', ['dependencyName1', 'dependencyName2'], function(dep1, dep2){...}, {metadata}); NOTE: name and deps properties in metadata will get overridden
+     * 3. normal require: m(function (dependencyName1, dependencyName2){...}
+     * 4. explicit require: m(['dependencyName1', 'dependencyName2'], function (dep1, dep2){...});
      */
-    function modulus(func, metadata){
-        if(metadata){func.module = metadata;}
+    function modulus(param1, param2, param3, param4){
+        var func, metadata;
+        //handle requirejs-like syntax 'moduleid', ['deps'], function
+        //the function name and param names are ignored with this option.
+        if(typeof param1 === 'string'){   //explicit define   m('moduleName', ['dep1', 'dep2], function moduleName(dep1, dep2){...}
+            metadata = param4 || {};
+            metadata.name = metadata.name || param1; //metadata name should win over build time generated.
+            metadata.deps = param2 || [];
+            func = param3;
+        }else if(typeof param1 === 'object'){   //explicit require m(['dep1'], function (dep1){...}
+            metadata = param3 || {};
+            metadata.deps = param1 || [];
+            func = param2;
+        }else{//default syntax of m(func(dep1, dep2){...}, {metadata})
+            func = param1;
+            metadata = param2;
+        }
+        if(metadata){func.module = metadata;}  //todo: merge metadata with existing module data?
         var module = modulus.config._createModuleFromFunction({key:func.name, func:func}, true);
 
-        if(module.name){
+        if(module.name){  //define
             modulus.config._registerModule(module);
-//            if(module.module && module.module.autoInit){
-//                //modulus.config._initModule(module);  add to queue.
-//            }
-        }else{
-            //modulus.config._initModule(module);
+        }else{  //require
+            //requires should get initted immediately, unless the module has metadata and has set autoInit to true.
             if(!func.module || (func.module && !func.module.autoInit)){  //if autoInit is specified, wait until modulus.init is called.
                 modulus.config._initModule(module);
             }
+            //when the module metadata specifies autoInit, we should add it to an array and init it once modulus.init() is called.
             if(func.module && func.module.autoInit){
                 modulus.anonymousInitQueue = modulus.anonymousInitQueue || [];
                 modulus.anonymousInitQueue.push(module);
@@ -610,7 +697,7 @@
         }
         var end = new Date().getTime();
         var total = end-start;
-        console.log('modulus initialized in %s ms', total);
+        //console.log('modulus initialized in %s ms', total);
     };
 
     /**

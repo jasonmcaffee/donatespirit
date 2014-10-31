@@ -55,7 +55,8 @@
         <h2>Defense</h2>
     </section>
 
-    <script src="resources/js/jquery-2.1.1.js"></script>
+    <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>
     <script src="resources/js/modulus.js"></script>
+    <script src="resources/js/app.js"></script>
 </body>
 </html>

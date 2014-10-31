@@ -13,19 +13,30 @@ body{
 %main-section{
     padding: 1% 5% 1% 5%;
     h1{
-        font-size: 40px;
-        color:rgb(88,89, 91);
+        font-size: 48px;
+        text-align: center;
+
     }
+    h1, h2, h3, h4, p, div, li{
+        color:rgb(88,89, 91); //grey
+    }
+    p, li{
+        font-size:36px;
+    }
+
+    //center
+    margin-left: auto;
+    margin-right: auto;
+    max-width:1500px;
+    margin-bottom:14px;
 }
 
 header{
-    color: rgb(241,242,242);
+    color: rgb(241,242,242); //white
 
     display: block;
     width: 100%;
-    min-height:700px;
-    max-height: 600px;
-    height:30%;
+
     max-width:1500px;
 
     //center
@@ -38,11 +49,16 @@ header{
 }
 
 .header-content{
-    @extend %main-section;
+    //@extend %main-section;
+    padding: 1% 5% 1% 5%;
+    color:inherit;
+    h1, h2, h3, p, li, div{
+        color:inherit;
+    }
     //position: absolute;
     //top:0;
     width: 100%;
-    height:100%;
+    //height:100%;
     @extend %yellow-blue-gradient;
 
     p{
@@ -51,9 +67,16 @@ header{
 }
 
 .top-nav{
+    img{
+        display:inline-block;
+        width: 10%;
+        vertical-align: middle;
+    }
     h1{
         display:inline-block;
-        width:50%;
+        width:40%;
+        font-size:70px;
+        vertical-align: middle;
     }
 
     div{
@@ -73,7 +96,7 @@ header{
 
                 a{
                     text-decoration: none;
-                    color: rgb(241,242,242);
+                    color: rgb(241,242,242); //white
                     font-size:150%;
                 }
             }
@@ -82,7 +105,21 @@ header{
 
 }
 
-.rules-section{
+#rules-section{
+    @extend %main-section;
+    img{
+        //float:left;
+        //margin-right:10px;
+        width:20%;
+    }
+    ul{
+        width:79%;
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+
+#strategy-section{
     @extend %main-section;
 }
 
@@ -90,15 +127,21 @@ header{
 //small media query
 @include mq(medium-and-below){
     .top-nav{
+        img{
+            width:9%;
+
+        }
         h1{
-            width:100%;
+            width:89%;
             text-align: center;
-            font-size:300%;
+            margin-left: auto;
+            margin-right: auto;
+            //font-size:300%;
         }
         div{
             width:100%;
-            padding-left:20%;
-            padding-right:20%;
+            //padding-left:20%;
+            //padding-right:20%;
 
             ul{
                 text-align: center;
@@ -168,7 +211,7 @@ ul{
 }
 
 html, body{
-    height:100%;
+    //height:100%;
     width:100%;
     margin:0px;
     padding:0px;

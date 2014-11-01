@@ -55,6 +55,10 @@
         <h2>Defense</h2>
     </section>
 
+    <section id="members-section">
+
+    </section>
+
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>
     <script src="resources/js/modulus.js"></script>
     <script src="resources/js/app.js"></script>

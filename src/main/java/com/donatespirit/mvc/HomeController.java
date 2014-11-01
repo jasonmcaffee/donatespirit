@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class HelloController {
+public class HomeController {
 
     @Autowired private UserDAO userDAO;
     @Autowired private UserInfoDAO userInfoDAO;

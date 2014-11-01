@@ -2,6 +2,7 @@ package com.donatespirit.mvc.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,16 @@ public class UserDAO {
 
     @Transactional
     public User getUserByUserName(String userName){
+        User user = null;
         Session session = sessionFactory.getCurrentSession();
-        User user = (User)session.load(User.class, userName);  //probably doesn't work.
+        Query query = session.createQuery("from User where userName= :name");
+        query.setParameter("name", userName);
+        List<User> users = query.list();
+        if(users.isEmpty()){
+            //no match
+        }else{
+            user = users.get(0);
+        }
         return user;
     }
 

@@ -3,25 +3,54 @@ package com.donatespirit.mvc.controller;
 import com.donatespirit.mvc.dao.UserDAO;
 import com.donatespirit.mvc.dao.UserInfoDAO;
 import com.donatespirit.mvc.model.User;
+import com.donatespirit.mvc.model.SessionContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@SessionAttributes({"sessionContext"})
 public class UserController {
     @Autowired private UserDAO userDAO;
     @Autowired private UserInfoDAO userInfoDAO;
 
+    @ModelAttribute("sessionContext")
+    public SessionContext createSessionContext(){
+        return new SessionContext();
+    }
+
+    @RequestMapping(value = "/user/signin", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser, @ModelAttribute("sessionContext") SessionContext sessionContext){
+        ModelMap map = new ModelMap();
+        map.addAttribute("success", true);
+
+        User foundUser = userDAO.getUserByUserName(attemptedUser.getUserName());
+        if(foundUser == null){
+            map.addAttribute("success", false);
+            map.addAttribute("errorMessage", "either the user doesn't exist or incorrect password");
+        }else{
+            if(foundUser.getPassword().equals(attemptedUser.getPassword())){
+                map.addAttribute("message", "welcome!");
+                //set isSigned in.
+                foundUser.setSignedIn(true);
+                sessionContext.setUser(foundUser);
+            }else{
+                map.addAttribute("errorMessage", "either the user doesn't exist or incorrect password.");
+            }
+        }
+
+
+
+        return map;
+    }
+
     @RequestMapping(value = "/user/list", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody
-    ModelMap ajaxTest(){
+    public @ResponseBody ModelMap listUser(){
         List<User> users = userDAO.findAll();
 
         ModelMap map = new ModelMap();

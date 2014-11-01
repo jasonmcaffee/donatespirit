@@ -23,17 +23,19 @@ m(function($){
         console.log(JSON.stringify(data));
     });
 
-//    $.ajax({
-//        url:'user/create',
-//        type:'POST',
-//        dataType:'JSON',
-//        contentType: "application/json",
-//        data:JSON.stringify({
-//            id: 5,
-//            userName: 'jason5',
-//            password: 'monkey'
-//        })
-//    }).done(function(data){
-//        console.log(JSON.stringify(data));
-//    });
+    $.ajax({
+        url:'user/create',
+        type:'POST',
+        dataType:'JSON',
+        contentType: "application/json",
+        data:JSON.stringify({
+            userName: 'jason9',
+            password: 'monkey',
+            userInfo:{
+                email:'jasonmc@gmail.com'
+            }
+        })
+    }).done(function(data){
+        console.log(JSON.stringify(data));
+    });
 });

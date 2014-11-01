@@ -11,8 +11,29 @@ m.init({
 });
 
 m(function($){
-    var $out = $('#out');
-    $out.html('done loading');
+//    var $out = $('#out');
+//    $out.html('done loading');
 
-    $.ajax({url:'ajaxTest', dataType:'JSON',contentType: "application/json", data:1}).done(function(data){console.log(JSON.stringify(data));});
+    $.ajax({
+        url:'user/list',
+        dataType:'JSON',
+        contentType: "application/json",
+        data:1
+    }).done(function(data){
+        console.log(JSON.stringify(data));
+    });
+
+//    $.ajax({
+//        url:'user/create',
+//        type:'POST',
+//        dataType:'JSON',
+//        contentType: "application/json",
+//        data:JSON.stringify({
+//            id: 5,
+//            userName: 'jason5',
+//            password: 'monkey'
+//        })
+//    }).done(function(data){
+//        console.log(JSON.stringify(data));
+//    });
 });

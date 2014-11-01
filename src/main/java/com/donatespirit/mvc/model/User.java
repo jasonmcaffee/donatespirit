@@ -6,12 +6,9 @@ package com.donatespirit.mvc.model;
 import java.util.List;
 
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.donatespirit.mvc.model.UserInfo;
 //
 //
 @Entity
@@ -20,6 +17,20 @@ public class User {
     @Id @GeneratedValue private long id;
     private String userName;
     private String password;
+
+    @OneToOne
+    @JoinColumn(name="id")
+    private UserInfo userInfo;
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+
 
 //    @OneToMany(mappedBy = "pizza", fetch = FetchType.LAZY)
 //    private List<Topping> toppings;

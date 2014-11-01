@@ -27,16 +27,19 @@ public class HelloController {
 		return "hello";
 	}
 
-    @RequestMapping(value = "/ajaxTest", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
     public @ResponseBody List<User> ajaxTest(){
-        List<String> result = new ArrayList<String>();
-        result.add("hello");
-        result.add("world");
-
         List<User> users = userDAO.findAll();
 
         return users;
     }
+    @RequestMapping(value = "/user/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+    public @ResponseBody String createUser(@RequestBody User user){
+        userDAO.addUser(user);
+
+        return "success";
+    }
+
 
 
 }

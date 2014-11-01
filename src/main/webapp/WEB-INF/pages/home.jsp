@@ -11,7 +11,7 @@
 
             <div class="top-nav">
                 <img src="resources/img/donate-shield.png"/>
-                <h1>Donate Spirit</h1>
+                <h1>Donate Spirit ${user.userName}</h1>
                 <div>
                     <ul>
                         <li><a href="#rules-section">Rules</a></li><!--

@@ -6,26 +6,25 @@ import com.donatespirit.mvc.model.User;
 import com.donatespirit.mvc.model.SessionContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"sessionContext"})
 public class UserController {
     @Autowired private UserDAO userDAO;
     @Autowired private UserInfoDAO userInfoDAO;
+    @Autowired private SessionContext sessionContext;
 
-    @ModelAttribute("sessionContext")
-    public SessionContext createSessionContext(){
-        return new SessionContext();
-    }
 
+    //@ModelAttribute("sessionContext") SessionContext sessionContext
     @RequestMapping(value = "/user/signin", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser, @ModelAttribute("sessionContext") SessionContext sessionContext){
+    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 
@@ -43,8 +42,6 @@ public class UserController {
                 map.addAttribute("errorMessage", "either the user doesn't exist or incorrect password.");
             }
         }
-
-
 
         return map;
     }

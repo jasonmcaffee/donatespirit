@@ -20,25 +20,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-//@SessionAttributes({"sessionContext"})
-//@Scope("session")
-//@Scope("request")
 public class HomeController {
 
     @Autowired private UserDAO userDAO;
     @Autowired private UserInfoDAO userInfoDAO;
     @Autowired private SessionContext sessionContext;
 
-    @RequestMapping( value="/", method = RequestMethod.GET)          //, HttpSession session
+    @RequestMapping( value="/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Hello world!");
         List<User> users = userDAO.findAll();
         model.addAttribute("users", users);
-//        SessionContext sessionContext = (SessionContext)session.getAttribute("sessionContext");
-//        if(sessionContext == null){
-//            sessionContext = new SessionContext();
-//            session.setAttribute("sessionContext", sessionContext);
-//        }
+
         if(sessionContext.getUser() != null && sessionContext.getUser().isSignedIn()){
             model.addAttribute("user", sessionContext.getUser());
         }

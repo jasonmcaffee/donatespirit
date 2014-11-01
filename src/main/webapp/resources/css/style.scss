@@ -123,6 +123,9 @@ header{
     @extend %main-section;
 }
 
+#members-section{
+    @extend %main-section;
+}
 //################################# media queries ################################################################
 //small media query
 @include mq(medium-and-below){

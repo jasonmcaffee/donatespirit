@@ -18,6 +18,19 @@ public class User {
     private String userName;
     private String password;
 
+    @Transient
+    public boolean isSignedIn() {
+        return isSignedIn;
+    }
+
+    @Transient
+    public void setSignedIn(boolean signedIn) {
+        isSignedIn = signedIn;
+    }
+
+    @Transient
+    private boolean isSignedIn;
+
     @OneToOne
     @JoinColumn(name="id")
     private UserInfo userInfo;
@@ -29,8 +42,6 @@ public class User {
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
-
-
 
 //    @OneToMany(mappedBy = "pizza", fetch = FetchType.LAZY)
 //    private List<Topping> toppings;

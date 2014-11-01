@@ -57,6 +57,7 @@
     </section>
 
     <section id="members-section">
+        <h1>Members</h1>
         <c:forEach var="user" items="${users}">
             <div>
                 <span>${user.userName}</span>

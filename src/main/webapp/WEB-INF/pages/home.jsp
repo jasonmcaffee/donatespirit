@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
@@ -56,7 +57,12 @@
     </section>
 
     <section id="members-section">
-
+        <c:forEach var="user" items="${users}">
+            <div>
+                <span>${user.userName}</span>
+                <span>${user.userInfo.email}</span>
+            </div>
+        </c:forEach>
     </section>
 
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>

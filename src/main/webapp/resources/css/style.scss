@@ -126,8 +126,12 @@ header{
 #members-section{
     @extend %main-section;
     div{
-        color:blue;
+        //color:greenyellow;
     }
+}
+
+#create-account-section{
+    @extend %main-section;
 }
 //################################# media queries ################################################################
 //small media query

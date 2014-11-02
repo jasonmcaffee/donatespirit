@@ -37,6 +37,9 @@ public class User implements Serializable {
     private UserInfo userInfo;
 
     public UserInfo getUserInfo() {
+        if(userInfo == null){
+            userInfo = new UserInfo();
+        }
         return userInfo;
     }
 

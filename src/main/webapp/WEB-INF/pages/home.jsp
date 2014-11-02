@@ -61,9 +61,19 @@
         <c:forEach var="user" items="${users}">
             <div>
                 <span>${user.userName}</span>
-                <span>${user.userInfo.email}</span>
             </div>
         </c:forEach>
+    </section>
+
+    <section id="create-account-section">
+        <h1>Create Account</h1>
+        <form id="createAccountForm">
+            <input type="text" id="userName" name="userName"/>
+            <input type="text" id="password" name="password"/>
+            <input type="text" id="email" name="userInfo[email]"/>
+
+            <input type="submit">
+        </form>
     </section>
 
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>

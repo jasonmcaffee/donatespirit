@@ -15,7 +15,8 @@
                 <div>
                     <ul>
                         <li><a href="#rules-section">Rules</a></li><!--
-                        --><li><a href="#strategy-section">Strategy</a></li><!--
+                        --><li><a href="#account-section">Account</a></li><!--
+                        --><li><a href="/strategies">Strategy</a></li><!--
                         --><li><a href="#members">Members</a></li><!--
                         --><li><a href="#chat">Chat</a></li>
                     </ul>
@@ -42,20 +43,6 @@
         </ul>
     </section>
 
-    <section id="strategy-section">
-        <h1>Strategy</h1>
-        <h2>TH7 Offense</h2>
-        <div>
-
-        </div>
-
-        <h2>TH8 Offense</h2>
-
-        <h2>TH9 Offense</h2>
-
-        <h2>Defense</h2>
-    </section>
-
     <section id="members-section">
         <h1>Members</h1>
         <c:forEach var="user" items="${users}">
@@ -65,15 +52,32 @@
         </c:forEach>
     </section>
 
-    <section id="create-account-section">
-        <h1>Create Account</h1>
-        <form id="createAccountForm">
-            <input type="text" id="userName" name="userName"/>
-            <input type="text" id="password" name="password"/>
-            <input type="text" id="email" name="userInfo[email]"/>
+    <section id="account-section">
+        <h1> Account</h1>
+        <div>
+            <h2>Create Account</h2>
+            <form id="createAccountForm">
+                <label for="userName">User Name</label>
+                <input type="text" id="userName" name="userName"/>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password"/>
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="userInfo[email]"/>
 
-            <input type="submit">
-        </form>
+                <input type="submit">
+            </form>
+        </div>
+
+        <div>
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <input type="text" id="userName" name="userName"/>
+                <input type="text" id="password" name="password"/>
+
+                <input type="submit">
+            </form>
+        </div>
+
     </section>
 
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>

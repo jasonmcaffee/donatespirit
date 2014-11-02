@@ -11,6 +11,7 @@ m.init({
 });
 
 m(function($){
+    //http://stackoverflow.com/questions/1184624/convert-form-data-to-js-object-with-jquery
     $.fn.serializeObject = function(){
 
         var self = this,
@@ -132,6 +133,25 @@ m(function($){
         }).done(function(data){
                 console.log(JSON.stringify(data));
             });
+        console.log(JSON.stringify(data));
+    });
+
+});
+
+m(function($){
+    $(document).on('submit', '#signinForm', function(e){
+        e.preventDefault();
+        var data = $(this).serializeObject();
+
+        $.ajax({
+            url:'user/signin',
+            type:'POST',
+            dataType:'JSON',
+            contentType: "application/json",
+            data:JSON.stringify(data)
+        }).done(function(data){
+                console.log(JSON.stringify(data));
+        });
         console.log(JSON.stringify(data));
     });
 

@@ -1,0 +1,68 @@
+
+//#################################### RESET ###########################################################################
+*{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+  */
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+ul{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+html, body{
+    //height:100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    font-family:  "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean;
+}
+a{
+    //color: rgb(87,187,228);
+}
+h1{
+    font-size:60px;
+    //color: rgb(0,174,239); //blue
+    //color: rgb(87,187,228); //blue
+}
+h2{
+    font-size:32px;
+    //color: rgb(57,181,74); //green
+    //color: rgb(65,64,66); //dark grey
+}
+h3 {
+    font-size: 24px;
+    //color: #848484;
+}
+
+h4 {
+    font-size:20px;
+    //color: #A5A5A5;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean;
+    //color: rgb(233,233,234); //light grey
+    //color: rgb(65,64,66); //dark grey
+    //color: rgb(0,174,239); //blue
+    //color: rgb(57,181,74); //green
+    margin-bottom: 0px;
+    margin-top:0px;
+    -webkit-text-stroke-width: .1px;
+    -webkit-text-stroke-color: rgba(147,149,152, .1);
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    //text-shadow:
+    //    -1px -1px 0 rgba(147,149,152, .4),
+    //    1px -1px 0 rgba(147,149,152, .4),
+    //    -1px 1px 0 rgba(147,149,152, .4),
+    //    1px 1px 0 rgba(147,149,152, .4);
+    //text-shadow: 1px 1px rgba(147,149,152,.8), -1px -1px rgba(147,149,152,.5);
+}
+
+p{
+    font-size: 21px;
+}

@@ -1,0 +1,149 @@
+body
+{
+    font-family: sans-serif;
+}
+
+h2
+{
+    clear: both;
+}
+
+.header
+{
+    border: 1px solid #888;
+    margin-top: 12px;
+    padding: 2px;
+    font-size: 110%;
+    font-weight: bold;
+    cursor: pointer;
+    height: 27px;
+    overflow-y: visible;
+    position: relative;
+    clear: both;
+}
+
+.header img
+{
+    display: block;
+    position: relative;
+    top: -18px;
+    float: left;
+}
+
+.header span
+{
+    display: block;
+    position: relative;
+    xtop: -45px;
+}
+
+.header.good
+{
+    background-color: #a2f6a7;
+    border-color: #6ba26e;
+}
+
+.header.possible
+{
+    background-color: #a2b3f6;
+    border-color: #6b76a2;
+}
+
+/*.header.difficult
+{
+	background-color: #f4f6a2;
+	border-color: #a1a26b;
+}*/
+
+.header.wrong
+{
+    background-color: #f6a2a2;
+    border-color: #a26b6b;
+}
+
+.body
+{
+    padding-left: 12px;
+    display: none;
+    clear: both;
+    position: relative;
+    top: -6px;
+}
+
+.leader
+{
+    font-weight: bold;
+    position: relative;
+    left:-12px;
+}
+
+.body UL
+{
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+div.links
+{
+    text-align: center;
+    margin-bottom: 11px;
+}
+
+div.links div
+{
+    display: inline-block;
+    border: 1px solid #888;
+    background-color: #ddd;
+    font-size: 1.5em;
+    padding: 2px 7px;
+    margin: 0px 12px;
+}
+
+div.links div.active
+{
+    background-color: White;
+    border-color: #8376f0;
+}
+
+div.links A
+{
+    color: Black;
+    text-decoration: none;
+}
+
+/********************** screens ****************************/
+
+.screen
+{
+    display: none;
+}
+
+.screen IMG
+{
+    width: 100%;
+}
+
+#screenchoice
+{
+    font-size: 1.2em;
+    text-align: center;
+    margin: 2px 8px 2px 9px;
+}
+
+#screenchoice A
+{
+    margin: 0px 4px;
+    color: Blue;
+}
+
+#screenchoice A.selected
+{
+    text-decoration: none;
+    color: Black;
+    cursor: default;
+}
+
+.caption
+{
+    margin-bottom: 8px;
+}

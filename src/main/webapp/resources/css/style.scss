@@ -1,5 +1,6 @@
 @import "media-queries";
 @import "reset";
+@import "form";
 
 
 html{
@@ -135,9 +136,15 @@ header{
     @extend %main-section;
 
     //create account
-    div:first-child{
-
+    div{
+        h2{
+            text-align: center;
+        }
+        display:inline-block;
+        width:49%;
+        vertical-align: top;
     }
+
 }
 //################################# media queries ################################################################
 //small media query

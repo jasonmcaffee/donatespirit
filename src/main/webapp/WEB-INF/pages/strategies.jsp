@@ -262,5 +262,8 @@
             Since the heavy units target defences they go to the front and protect the fragile units.  GoWi attacks use this to do the difficult bit, and then pekkas or witches help clean up.
             But most other combinations end up losing lots of little fights in different places.</div>
     </div>
+
+    <script src="resources/js/modulus.js"></script>
+
 </body>
 </html>

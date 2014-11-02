@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap createUser(@RequestBody User user){
+    public @ResponseBody ModelMap createUser(@RequestBody User user, HttpServletRequest request){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 
@@ -71,6 +72,7 @@ public class UserController {
         }
 
         user.getUserInfo().setUserId(user.getId());
+        user.getUserInfo().setCreationIp(request.getRemoteAddr());
 
         try{
             userInfoDAO.addUserInfo(user.getUserInfo());

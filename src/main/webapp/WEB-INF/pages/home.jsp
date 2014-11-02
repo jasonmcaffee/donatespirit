@@ -5,28 +5,7 @@
 </head>
 <body>
 
-    <header>
-
-        <div class="header-content">
-
-            <div class="top-nav">
-                <img src="resources/img/donate-shield.png"/>
-                <h1>Donate Spirit ${user.userName}</h1>
-                <div>
-                    <ul>
-                        <li><a href="#rules-section">Rules</a></li><!--
-                        --><li><a href="#account-section">Account</a></li><!--
-                        --><li><a href="/strategies">Strategy</a></li><!--
-                        --><li><a href="#members">Members</a></li><!--
-                        --><li><a href="#chat">Chat</a></li>
-                    </ul>
-                    <hr/>
-                </div>
-            </div>
-
-            <p>Highly active clan dedicated to war and donating generously.</p>
-        </div>
-    </header>
+    <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
 
     <section id="rules-section">
         <h1>Rules</h1>
@@ -43,6 +22,8 @@
         </ul>
     </section>
 
+    <%@ include file="/WEB-INF/pages/shared/account.jsp" %>
+
     <section id="members-section">
         <h1>Members</h1>
         <c:forEach var="user" items="${users}">
@@ -52,33 +33,7 @@
         </c:forEach>
     </section>
 
-    <section id="account-section">
-        <h1> Account</h1>
-        <div>
-            <h2>Create Account</h2>
-            <form id="createAccountForm">
-                <label for="userName">User Name</label>
-                <input type="text" id="userName" name="userName"/>
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password"/>
-                <label for="email">Email Address</label>
-                <input type="text" id="email" name="userInfo[email]"/>
 
-                <input type="submit">
-            </form>
-        </div>
-
-        <div>
-            <h2>Sign In</h2>
-            <form id="signinForm">
-                <input type="text" id="userName" name="userName"/>
-                <input type="text" id="password" name="password"/>
-
-                <input type="submit">
-            </form>
-        </div>
-
-    </section>
 
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>
     <script src="resources/js/modulus.js"></script>

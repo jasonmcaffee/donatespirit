@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-public class SessionContext
+import java.io.Serializable;
+
+public class SessionContext implements Serializable
 {
     public User getUser() {
         return user;

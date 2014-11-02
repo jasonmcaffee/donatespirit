@@ -3,6 +3,7 @@ package com.donatespirit.mvc.model;
 //http://gerrydevstory.com/2013/06/29/spring-mvc-hibernate-mysql-quick-start-from-scratch/
 
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -13,7 +14,7 @@ import com.donatespirit.mvc.model.UserInfo;
 //
 @Entity
 //@Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id @GeneratedValue private long id;
     private String userName;
     private String password;

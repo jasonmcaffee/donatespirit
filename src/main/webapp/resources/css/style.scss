@@ -125,6 +125,9 @@ header{
 
 #members-section{
     @extend %main-section;
+    div{
+        color:blue;
+    }
 }
 //################################# media queries ################################################################
 //small media query

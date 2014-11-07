@@ -24,17 +24,6 @@
 
     <%@ include file="/WEB-INF/pages/shared/account.jsp" %>
 
-    <section id="members-section">
-        <h1>Members</h1>
-        <c:forEach var="user" items="${users}">
-            <div>
-                <span>${user.userName}</span>
-            </div>
-        </c:forEach>
-    </section>
-
-
-
     <%--<script src="resources/js/jquery-2.1.1.js"></script>--%>
     <script src="resources/js/modulus.js"></script>
     <script src="resources/js/app.js"></script>

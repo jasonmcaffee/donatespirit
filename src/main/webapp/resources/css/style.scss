@@ -132,6 +132,50 @@ header{
     }
 }
 
+#messages-section{
+    @extend %main-section;
+
+    > div{
+        display:table;
+        width:100%;
+        ul { //row
+            width:100%;
+            display: table-row;
+
+            li {
+                display:table-cell;
+                font-size: 20px;
+                //date
+                &:nth-child(1){
+                    width:10%;
+                    font-size: 10px;
+                }
+
+                //user
+                &:nth-child(2){
+                    width:10%;
+
+                }
+
+                //message
+                &:nth-child(3){
+                    width: 80%;
+                }
+            }
+        }
+
+        ul:first-child{
+            font-size: 20px;
+            li{
+                font-size:20px;
+            }
+        }
+
+    }
+
+
+}
+
 #account-section{
     @extend %main-section;
 

@@ -132,6 +132,12 @@ m(function($){
             data:JSON.stringify(data)
         }).done(function(data){
                 console.log(JSON.stringify(data));
+                if(data.success){
+                    window.location.replace('members');
+                }else{
+                    //show error message
+                    window.alert('you have failed creating an account. bummer.' + data.errorMessage);
+                }
             });
         console.log(JSON.stringify(data));
     });
@@ -151,8 +157,34 @@ m(function($){
             data:JSON.stringify(data)
         }).done(function(data){
                 console.log(JSON.stringify(data));
+                if(data.success){
+                    window.location.replace('members');
+                }else{
+                    //show error message
+                    window.alert('you have failed signing in. bummer.' + data.errorMessage);
+                }
         });
         console.log(JSON.stringify(data));
     });
+
+
+//    //testing
+//    $.ajax({
+//        url:'message/create',
+//        type:'POST',
+//        dataType:'JSON',
+//        contentType: "application/json",
+//        data:JSON.stringify({
+//            message:'test message'
+//        })
+//    }).done(function(data){
+//        console.log(JSON.stringify(data));
+//        if(data.success){
+//            alert('success');
+//        }else{
+//            //show error message
+//            window.alert('you have failed posting a message. bummer.' + data.errorMessage);
+//        }
+//    });
 
 });

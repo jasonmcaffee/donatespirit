@@ -38,16 +38,5 @@ public class HomeController {
 		return "home";
 	}
 
-    @RequestMapping(value="/strategies", method = RequestMethod.GET)
-    public String showStrategies(ModelMap model) {
-
-        if(sessionContext.getUser() != null && sessionContext.getUser().isSignedIn()){
-            model.addAttribute("user", sessionContext.getUser());
-        }else{
-            return "notSignedIn";
-        }
-        return "strategies";
-    }
-
 
 }

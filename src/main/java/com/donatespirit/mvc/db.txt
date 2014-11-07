@@ -1,6 +1,7 @@
 http://dev.mysql.com/doc/refman/5.0/en/macosx-installation.html
 
 sudo /usr/local/mysql/bin/mysqld -u root
+sudo /usr/local/mysql/bin/mysql -u root
 
 no
 sudo /Library/StartupItems/MySQLCOM/MySQLCOM start
@@ -14,3 +15,23 @@ CREATE TABLE donatespirit.users
     password char(50) NOT NULL
 );
 ALTER TABLE donatespirit.users ADD CONSTRAINT unique_username UNIQUE (username);
+
+CREATE TABLE `UserInfo` (
+  `id` int(11) AUTO_INCREMENT NOT NULL,
+  `userId` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `creationIp` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_userId` (`userId`),
+  CONSTRAINT `userinfo_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+CREATE TABLE donatespirit.Message
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    userId int NOT NULL,
+    message varchar(5000) NOT NULL,
+    date datetime NOT NULL,
+    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+);

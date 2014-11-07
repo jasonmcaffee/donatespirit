@@ -18,7 +18,7 @@ form {
     padding:20px;
 
 
-    input[type="text"]{
+    input[type="text"], input[type="password"], input[type="email"]{
         border: 1px solid #959b9e;
         background: #f2f4f5;
         -webkit-border-radius: 4px;

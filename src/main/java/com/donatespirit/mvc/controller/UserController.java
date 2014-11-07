@@ -83,6 +83,9 @@ public class UserController {
             return map;
         }
 
+        user.setSignedIn(true);
+        sessionContext.setUser(user);
+
         return map;
     }
 }

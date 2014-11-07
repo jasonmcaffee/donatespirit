@@ -263,7 +263,8 @@
             But most other combinations end up losing lots of little fights in different places.</div>
     </div>
 
-    <script src="resources/js/modulus.js"></script>
+    <script src="resources/js/jquery-2.1.1.js"></script>
+    <script src="resources/js/strategy.js"></script>
 
 </body>
 </html>

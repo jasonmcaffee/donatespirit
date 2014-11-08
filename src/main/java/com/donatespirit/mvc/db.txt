@@ -33,5 +33,6 @@ CREATE TABLE donatespirit.Message
     userId int NOT NULL,
     message varchar(5000) NOT NULL,
     date datetime NOT NULL,
+    ip varchar(25),
     CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
 );

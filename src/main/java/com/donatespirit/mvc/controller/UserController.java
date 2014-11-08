@@ -58,7 +58,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap createUser(@RequestBody User user, HttpServletRequest request){
+    public @ResponseBody ModelMap createUser(@RequestBody User user, @RequestHeader(value="x-forwarded-for") String ipAddress){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 
@@ -72,7 +72,7 @@ public class UserController {
         }
 
         user.getUserInfo().setUserId(user.getId());
-        user.getUserInfo().setCreationIp(request.getRemoteAddr());
+        user.getUserInfo().setCreationIp(ipAddress);
 
         try{
             userInfoDAO.addUserInfo(user.getUserInfo());

@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MembersController {
@@ -56,7 +58,7 @@ public class MembersController {
     }
 
     @RequestMapping(value = "/message/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap createUser(@RequestBody Message message){
+    public @ResponseBody ModelMap createUser(@RequestBody Message message, @RequestHeader(value="x-forwarded-for") String ipAddress){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 
@@ -68,6 +70,7 @@ public class MembersController {
 
         //get user id and add to message.
         message.setUserId(sessionContext.getUser().getId());
+        message.setIp(ipAddress);
 
         try{
             messageDAO.addMessage(message);

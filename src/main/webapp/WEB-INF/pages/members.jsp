@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
@@ -9,16 +10,22 @@
 
 <section id="messages-section">
     <h3>Message Board</h3>
+
+    <h4>Post Message</h4>
+    <form id="postMessageForm">
+        <textarea name="message" rows="4"></textarea>
+        <input type="submit"/>
+    </form>
+
     <div>
         <ul>
-            <li>Date</li><li>User</li><li>Message</li>
+            <li>User</li><li>Message</li><li>Date</li>
         </ul>
 
         <c:forEach var="message" items="${messages}">
-            <ul><li>${message.date}</li><li>${message.user.userName}</li><li>${message.message}</li></ul>
+            <ul><li><c:out value="${message.user.userName}"/></li><li><c:out value="${message.message}"/></li><li>${message.date}</li></ul>
         </c:forEach>
     </div>
-
 </section>
 <section id="members-section">
     <h1>Members</h1>
@@ -31,7 +38,7 @@
     <h3>Registered Users</h3>
     <c:forEach var="user" items="${users}">
         <div>
-            <span>${user.userName}</span>
+            <span><c:out value="${user.userName}"/></span>
         </div>
     </c:forEach>
 </section>

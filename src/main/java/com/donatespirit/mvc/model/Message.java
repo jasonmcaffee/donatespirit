@@ -50,10 +50,20 @@ public class Message {
     private long userId;
 
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="userId", referencedColumnName = "id", insertable = false, updatable = false)
     private User user;
 
     private Date date;
 
     private String message;
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    private String ip;
 }

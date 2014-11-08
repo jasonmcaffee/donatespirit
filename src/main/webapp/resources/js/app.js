@@ -167,24 +167,29 @@ m(function($){
         console.log(JSON.stringify(data));
     });
 
+});
 
-//    //testing
-//    $.ajax({
-//        url:'message/create',
-//        type:'POST',
-//        dataType:'JSON',
-//        contentType: "application/json",
-//        data:JSON.stringify({
-//            message:'test message'
-//        })
-//    }).done(function(data){
-//        console.log(JSON.stringify(data));
-//        if(data.success){
-//            alert('success');
-//        }else{
-//            //show error message
-//            window.alert('you have failed posting a message. bummer.' + data.errorMessage);
-//        }
-//    });
+m(function($){
+    $(document).on('submit', '#postMessageForm', function(e){
+        e.preventDefault();
+        var data = $(this).serializeObject();
+
+        $.ajax({
+            url:'message/create',
+            type:'POST',
+            dataType:'JSON',
+            contentType: "application/json",
+            data:JSON.stringify(data)
+        }).done(function(data){
+                console.log(JSON.stringify(data));
+                if(data.success){
+                    window.location.replace('members');
+                }else{
+                    //show error message
+                    window.alert('you have failed posting a message. bummer.' + data.errorMessage);
+                }
+            });
+        console.log(JSON.stringify(data));
+    });
 
 });

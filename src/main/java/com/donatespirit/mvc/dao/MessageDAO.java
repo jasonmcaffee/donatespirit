@@ -27,7 +27,7 @@ public class MessageDAO {
     @Transactional
     public List<Message> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        List<Message> messages = session.createQuery("from Message").list();
+        List<Message> messages = session.createQuery("from Message order by date desc").setMaxResults(500).list();
         return messages;
     }
 }

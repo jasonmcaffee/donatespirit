@@ -171,6 +171,9 @@ header{
                 }
             }
         }
+        ul:nth-child(odd){
+            background-color: snow;
+        }
 
         ul:first-child{
             font-size: 20px;

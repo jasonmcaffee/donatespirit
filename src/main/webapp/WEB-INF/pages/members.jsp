@@ -28,13 +28,6 @@
     </div>
 </section>
 <section id="members-section">
-    <h1>Members</h1>
-
-    <h2>This is the members section of the site, which only signed in users can see. </h2>
-    <h2>There will be a message board here soon.</h2>
-    <h2>For now, check out the <a href="/strategies">strategies</a> page that Onyx wrote.</h2>
-
-    <br/>
     <h3>Registered Users</h3>
     <c:forEach var="user" items="${users}">
         <div>

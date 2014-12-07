@@ -38,5 +38,11 @@ public class HomeController {
 		return "home";
 	}
 
+    @RequestMapping( value="/error", method = RequestMethod.GET)
+    public String error(ModelMap model) {
+        model.addAttribute("errorMessage", "You are either not signed in, or your account has not been approved yet. Ask a Co-Leader to approve your account.");
+
+        return "error";
+    }
 
 }

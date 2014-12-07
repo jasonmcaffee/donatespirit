@@ -8,7 +8,7 @@
         <New class="org.eclipse.jetty.server.session.SessionHandler">
             <Arg>
                 <New class="org.eclipse.jetty.server.session.JDBCSessionManager">
-                    <Set name="idManager">
+                    <Set name="sessionIdManager">
                         <Ref id="jdbcIdMgr"/>
                     </Set>
                 </New>
@@ -16,3 +16,22 @@
         </New>
     </Set>
 </Configure>
+
+
+      <!-- jetty 8 way -->
+<!--<Configure>-->
+<!--<Get name="server">-->
+    <!--<Get id="jdbcIdMgr" name="sessionIdManager"/>-->
+<!--</Get>-->
+<!--<Set name="sessionHandler">-->
+    <!--<New class="org.eclipse.jetty.server.session.SessionHandler">-->
+        <!--<Arg>-->
+            <!--<New class="org.eclipse.jetty.server.session.JDBCSessionManager">-->
+                <!--<Set name="idManager">-->
+                    <!--<Ref id="jdbcIdMgr"/>-->
+                <!--</Set>-->
+            <!--</New>-->
+        <!--</Arg>-->
+    <!--</New>-->
+<!--</Set>-->
+<!--</Configure>-->

@@ -9,12 +9,14 @@
                 <ul>
                     <li><a href="/members">Members</a></li><!--
                         --><li><a href="/strategies">Strategy</a></li><!--
+                        --><li><a href="/approvals">Approvals</a></li> <!--
+                        --><li><a href="/images"></a></li> <!--
                         -->
                 </ul>
                 <hr/>
             </div>
         </div>
 
-        <p>Highly active clan dedicated to war and donating generously.</p>
+        <p>Highly active clan dedicated to war and donating generously!</p>
     </div>
 </header>

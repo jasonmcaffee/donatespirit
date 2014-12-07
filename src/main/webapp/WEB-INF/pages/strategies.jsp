@@ -40,7 +40,7 @@
             help pull the dragons towards the middle.  Dragons move towards troops and heroes once they are reasonably close.
             <br />If your army camps have an odd number of spaces, like 175 then: (1) upgrade the last army camp to get another dragon!  (2) meanwhile use archers in the extra spaces to try and clean up some buildings outside the base so that the dragons don't wander off
         </div>
-        <div class="item"><span class="leader">Screenshots:</span><a href="BadDragon.htm">The wrong way to do a dragon attack</a></div>
+        <div class="item"><span class="leader">Screenshots:</span><a href="resources/html/BadDragon.htm">The wrong way to do a dragon attack</a></div>
     </div>
     <div class="header good"><img src="resources/img/strategies/dragon.png" /><img src="resources/img/strategies/Lightning.png" /><span>Dragon Swarm - lightning spells</span></div>
     <div class="body">
@@ -60,7 +60,7 @@
             <br />If you are using hogs to kill 1 airdef, you need to be careful of the CC troops.  If the hogs are targetting an airdef a long way from the CC, there is no problem.  If the airdef is near the CC,
             you must wait until the dragons have killed the CC troops before releasing the hogs.
         </div>
-        <div class="item"><span class="leader">Screenshots:</span><a href="EasyDragon.htm">Easy dragon attack on base with good airdef, badly positioned</a></div>
+        <div class="item"><span class="leader">Screenshots:</span><a href="resources/html/EasyDragon.htm">Easy dragon attack on base with good airdef, badly positioned</a></div>
     </div>
     <div class="header good"><img src="resources/img/strategies/hog.png" /><img src="resources/img/strategies/healing.png" /><span>Hogs!</span></div>
     <div class="body">
@@ -85,7 +85,7 @@
             Hog attack is more powerful than dragons on a compact target but harder!  At high TH8 and low TH9 this is the best war attack option against compact bases.
             It's hard to defend against this, but also it can be hard to get the healing spells right.  If the healing spells don't cover the hogs they will quickly get killed.
         </div>
-        <div class="item"><span class="leader">Screenshots:</span><a href="Hog.htm">Good hog attack</a></div>
+        <div class="item"><span class="leader">Screenshots:</span><a href="resources/html/Hog.htm">Good hog attack</a></div>
     </div>
     <div class="header good"><img src="resources/img/strategies/giant.png" /><img src="resources/img/strategies/wizard.png" /><span>Giant/Wizard</span></div>
     <div class="body">
@@ -186,8 +186,8 @@
                 wall-break or jump to make path to centre of base; and then send in the rest of the attack and drop a rage spell.  All the early work is needed to steer the pekkas/witches/heroes into the centre.
                 If these are just dropped outside a base they walk around the outside and get killed by the guns.</div>
         </div>
-        <div class="item"><span class="leader">Screenshots:</span><a href="GoWiPe8.htm">GoWiPe attack with TH8 army camps</a>
-            <br /><a href="GoodGoWi.htm">Good GoWi attack</a></div>
+        <div class="item"><span class="leader">Screenshots:</span><a href="resources/html/GoWiPe8.htm">GoWiPe attack with TH8 army camps</a>
+            <br /><a href="resources/html/GoodGoWi.htm">Good GoWi attack</a></div>
     </div>
     <h2>Possible attacks</h2>
     <div class="header possible"><img src="resources/img/strategies/giant.png" /><img src="resources/img/strategies/healer.png" /><span>Giant + healer</span></div>

@@ -193,3 +193,24 @@ m(function($){
     });
 
 });
+
+m(function($){
+//    var socket = new WebSocket('ws://donatespirit.com/websocket');
+//
+//    console.log('Connection attempted');
+//
+//    socket.onopen = function(){
+//        console.log('Connection open!');
+//    };
+//
+//    socket.onclose = function(){
+//        console.log('Disconnecting connection');
+//    };
+//
+//    socket.onmessage = function (evt){
+//        var received_msg = evt.data;
+//        console.log(received_msg);
+//        console.log('message received!');
+//    };
+//    socket.send("test");
+});

@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.donatespirit.mvc.model.UserInfo;
+import org.hibernate.annotations.Type;
+
 //
 //
 @Entity
@@ -18,6 +20,11 @@ public class User implements Serializable {
     @Id @GeneratedValue private long id;
     private String userName;
     private String password;
+
+
+//    @Column(columnDefinition = "TINYINT")
+//    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean approved;
 
     @Transient
     public boolean isSignedIn() {
@@ -70,6 +77,8 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    public boolean isApproved() {return approved;}
+    public void setApproved(boolean approved) {this.approved = approved;}
 
 
 }

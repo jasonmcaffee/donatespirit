@@ -30,11 +30,33 @@ public class UserDAO {
     }
 
     @Transactional
+    public List<User> findAllNotApproved() {
+        Session session = sessionFactory.getCurrentSession();
+        List<User> users = session.createQuery("from User where approved=0").list();
+        return users;
+    }
+
+    @Transactional
     public User getUserByUserName(String userName){
         User user = null;
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from User where userName= :name");
         query.setParameter("name", userName);
+        List<User> users = query.list();
+        if(users.isEmpty()){
+            //no match
+        }else{
+            user = users.get(0);
+        }
+        return user;
+    }
+
+    @Transactional
+    public User getUserByUserId(long id){
+        User user = null;
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from User where id= :id");
+        query.setParameter("id", id);
         List<User> users = query.list();
         if(users.isEmpty()){
             //no match

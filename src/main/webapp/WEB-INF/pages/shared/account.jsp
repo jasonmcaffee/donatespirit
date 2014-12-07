@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:if test="${empty user}">
 <section id="account-section">
     <h1> Account</h1>
     <div>
@@ -27,3 +30,4 @@
     </div>
 
 </section>
+</c:if>

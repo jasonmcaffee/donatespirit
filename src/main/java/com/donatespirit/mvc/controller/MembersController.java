@@ -33,10 +33,6 @@ public class MembersController {
 
     @RequestMapping( value="/members", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-
-        if(sessionContext.getUser() == null || !sessionContext.getUser().isSignedIn()){
-            return "notSignedIn";
-        }
         model.addAttribute("user", sessionContext.getUser());
 
         List<User> users = userDAO.findAll();
@@ -51,22 +47,38 @@ public class MembersController {
     @RequestMapping(value="/strategies", method = RequestMethod.GET)
     public String showStrategies(ModelMap model) {
 
-        if(sessionContext.getUser() == null || !sessionContext.getUser().isSignedIn()){
-            return "notSignedIn";
-        }
         return "strategies";
+    }
+
+    @RequestMapping(value="/approvals", method=RequestMethod.GET)
+    public String showApprovals(ModelMap model){
+        List<User> unapprovedUsers = userDAO.findAllNotApproved();
+        model.addAttribute("unapprovedUsers", unapprovedUsers);
+        return "accountApproval";
+    }
+
+    @RequestMapping(value="/approveUser", method=RequestMethod.POST)
+    public String approve(@RequestParam String userId, ModelMap model){
+        System.out.println("approve for userId: " + userId);
+        long uId = Long.parseLong(userId);
+        User approvedUser = userDAO.getUserByUserId(uId);
+        if(approvedUser != null){
+            approvedUser.setApproved(true);
+            userDAO.updateUser(approvedUser);
+        }else{
+            model.addAttribute("error", "that user does not exist.");
+        }
+
+
+        List<User> unapprovedUsers = userDAO.findAllNotApproved();
+        model.addAttribute("unapprovedUsers", unapprovedUsers);
+        return "accountApproval";
     }
 
     @RequestMapping(value = "/message/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
     public @ResponseBody ModelMap createUser(@RequestBody Message message, @RequestHeader(value="x-forwarded-for") String ipAddress){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
-
-        if(sessionContext.getUser() == null || !sessionContext.getUser().isSignedIn()){
-            map.addAttribute("success", false);
-            map.addAttribute("errorMessage", "not signed in");
-            return map;
-        }
 
         //get user id and add to message.
         message.setUserId(sessionContext.getUser().getId());
@@ -83,6 +95,5 @@ public class MembersController {
 
         return map;
     }
-
 
 }

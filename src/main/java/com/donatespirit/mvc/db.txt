@@ -8,13 +8,14 @@ sudo /Library/StartupItems/MySQLCOM/MySQLCOM start
 
 
 
-CREATE TABLE donatespirit.users
+CREATE TABLE donatespirit.User
 (
     id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
     username char(50) NOT NULL,
     password char(50) NOT NULL
 );
-ALTER TABLE donatespirit.users ADD CONSTRAINT unique_username UNIQUE (username);
+ALTER TABLE donatespirit.User ADD CONSTRAINT unique_username UNIQUE (username);
+ALTER TABLE donatespirit.User ADD approved TINYINT(1) DEFAULT 0 NOT NULL;
 
 CREATE TABLE `UserInfo` (
   `id` int(11) AUTO_INCREMENT NOT NULL,
@@ -34,5 +35,15 @@ CREATE TABLE donatespirit.Message
     message varchar(5000) NOT NULL,
     date datetime NOT NULL,
     ip varchar(25),
+    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+);
+
+CREATE TABLE donatespirit.Image
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    userID int NOT NULL,
+    imagePath varchar(1000),
+    date datetime NOT NULL,
+    description varchar(2000),
     CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
 );

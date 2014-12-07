@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,7 @@ public class UserController {
 
     //@ModelAttribute("sessionContext") SessionContext sessionContext
     @RequestMapping(value = "/user/signin", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser){
+    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser, @RequestHeader(value="x-forwarded-for") String ipAddress){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 
@@ -88,4 +89,6 @@ public class UserController {
 
         return map;
     }
+
+
 }

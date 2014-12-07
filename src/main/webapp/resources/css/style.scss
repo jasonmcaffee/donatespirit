@@ -107,7 +107,31 @@ header{
 
 }
 
-#rules-section{
+#rules-section-1{
+    @extend %main-section;
+    img{
+        //float:left;
+        //margin-right:10px;
+        width:20%;
+    }
+    ul{
+        width:79%;
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+#rules-section-2{
+    @extend %main-section;
+    ul{
+        width:79%;
+        display:inline-block;
+        vertical-align: top;
+    }
+    img{
+        width:20%;
+    }
+}
+#rules-section-3{
     @extend %main-section;
     img{
         //float:left;

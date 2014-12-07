@@ -97,7 +97,7 @@
     </mvc:interceptors>
     <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>-->
 
-    <!-- web sockets -->
+    <!-- web sockets asasfdfaffffsdf-->
     <!--<bean id="websocket" class="com.donatespirit.mvc.controller.WebsocketEndPoint"/>-->
 
     <!--&lt;!&ndash; http://syntx.io/using-websockets-in-java-using-spring-4/ &ndash;&gt;-->

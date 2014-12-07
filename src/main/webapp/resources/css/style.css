@@ -1,0 +1,321 @@
+* {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+  */
+  -webkit-tap-highlight-color: transparent; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean; }
+
+h1 {
+  font-size: 60px; }
+
+h2 {
+  font-size: 32px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "caviar_dreamsregular", "Helvetica Neue", Helvetica, arial, freesans, clean;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  -webkit-text-stroke-width: .1px;
+  -webkit-text-stroke-color: rgba(147, 149, 152, 0.1);
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility; }
+
+p {
+  font-size: 21px; }
+
+form {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 6px 9px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 6px 9px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 6px 9px -2px rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+  vertical-align: middle;
+  padding: 20px; }
+  form input[type="text"], form input[type="password"], form input[type="email"] {
+    border: 1px solid #959b9e;
+    background: #f2f4f5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #383838;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(0, 0, 0, 0.7) 0 0px 0px;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(0, 0, 0, 0.7) 0 0px 0px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(0, 0, 0, 0.7) 0 0px 0px;
+    padding: 8px;
+    margin-bottom: 20px;
+    width: 280px; }
+    form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
+      background: #fff;
+      color: #5d7cab; }
+  form h1 {
+    margin-bottom: 10px;
+    color: #424242;
+    text-shadow: #fdf2e4 0 1px 0; }
+  form label {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: whitesmoke;
+    width: 20%;
+    display: inline-block; }
+  form input[type="submit"] {
+    border: 1px solid #447314;
+    background: #6aa436;
+    background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+    background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+    background: -moz-linear-gradient(top, #8dc059, #6aa436);
+    background: -ms-linear-gradient(top, #8dc059, #6aa436);
+    background: -o-linear-gradient(top, #8dc059, #6aa436);
+    background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(255, 255, 255, 0.4) 0 1px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(255, 255, 255, 0.4) 0 1px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(255, 255, 255, 0.4) 0 1px 0;
+    text-shadow: #addc7e 0 1px 0;
+    color: #31540c;
+    font-family: helvetica, serif;
+    padding: 8.5px 18px;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle; }
+    form input[type="submit"]:hover {
+      border: 1px solid #447314;
+      text-shadow: #31540c 0 1px 0;
+      background: #6aa436;
+      background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+      background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+      background: -moz-linear-gradient(top, #8dc059, #6aa436);
+      background: -ms-linear-gradient(top, #8dc059, #6aa436);
+      background: -o-linear-gradient(top, #8dc059, #6aa436);
+      background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+      color: #fff; }
+    form input[type="submit"]:active {
+      text-shadow: #31540c 0 1px 0;
+      border: 1px solid #447314;
+      background: #8dc059;
+      background: -webkit-gradient(linear, left top, left bottom, from(#6aa436), to(#6aa436));
+      background: -webkit-linear-gradient(top, #6aa436, #8dc059);
+      background: -moz-linear-gradient(top, #6aa436, #8dc059);
+      background: -ms-linear-gradient(top, #6aa436, #8dc059);
+      background: -o-linear-gradient(top, #6aa436, #8dc059);
+      background-image: -ms-linear-gradient(top, #6aa436 0%, #8dc059 100%);
+      color: #fff; }
+
+form {
+  background: -moz-linear-gradient(top, rgba(63, 63, 63, 0.6) 0%, rgba(14, 14, 14, 0.6) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(63, 63, 63, 0.6)), color-stop(100%, rgba(14, 14, 14, 0.6)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(63, 63, 63, 0.6) 0%, rgba(14, 14, 14, 0.6) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(63, 63, 63, 0.6) 0%, rgba(14, 14, 14, 0.6) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(63, 63, 63, 0.6) 0%, rgba(14, 14, 14, 0.6) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(63, 63, 63, 0.6) 0%, rgba(14, 14, 14, 0.6) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993f3f3f', endColorstr='#990e0e0e',GradientType=0 );
+  /* IE6-9 */ }
+
+html {
+  width: 100%; }
+
+body {
+  width: 100%; }
+
+#rules-section-1, #rules-section-2, #rules-section-3, #strategy-section, #members-section, #messages-section, #account-section {
+  padding: 1% 5% 1% 5%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  margin-bottom: 14px; }
+  #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1 {
+    font-size: 48px;
+    text-align: center; }
+  #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1, #rules-section-1 h2, #rules-section-2 h2, #rules-section-3 h2, #strategy-section h2, #members-section h2, #messages-section h2, #account-section h2, #rules-section-1 h3, #rules-section-2 h3, #rules-section-3 h3, #strategy-section h3, #members-section h3, #messages-section h3, #account-section h3, #rules-section-1 h4, #rules-section-2 h4, #rules-section-3 h4, #strategy-section h4, #members-section h4, #messages-section h4, #account-section h4, #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #rules-section-1 div, #rules-section-2 div, #rules-section-3 div, #strategy-section div, #members-section div, #messages-section div, #account-section div, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
+    color: #58595b; }
+  #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
+    font-size: 36px; }
+
+header {
+  color: #f1f2f2;
+  display: block;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #000000 url("../img/donate-banner.png") no-repeat bottom left;
+  background-size: 100% 100%; }
+
+.header-content {
+  padding: 1% 5% 1% 5%;
+  color: inherit;
+  width: 100%; }
+  .header-content h1, .header-content h2, .header-content h3, .header-content p, .header-content li, .header-content div {
+    color: inherit; }
+  .header-content p {
+    font-size: 60px; }
+
+.top-nav img {
+  display: inline-block;
+  width: 10%;
+  vertical-align: middle; }
+.top-nav h1 {
+  display: inline-block;
+  width: 40%;
+  font-size: 70px;
+  vertical-align: middle; }
+.top-nav div {
+  display: inline-block;
+  width: 49%;
+  vertical-align: middle;
+  padding-bottom: 1%; }
+  .top-nav div ul {
+    display: inline-block;
+    width: 100%;
+    padding-left: 1%; }
+    .top-nav div ul li {
+      display: inline-block;
+      padding-right: 20px; }
+      .top-nav div ul li a {
+        text-decoration: none;
+        color: #f1f2f2;
+        font-size: 150%; }
+
+#rules-section-1 img {
+  width: 20%; }
+#rules-section-1 ul {
+  width: 79%;
+  display: inline-block;
+  vertical-align: top; }
+
+#rules-section-2 ul {
+  width: 79%;
+  display: inline-block;
+  vertical-align: top; }
+#rules-section-2 img {
+  width: 20%; }
+
+#rules-section-3 img {
+  width: 20%; }
+#rules-section-3 ul {
+  width: 79%;
+  display: inline-block;
+  vertical-align: top; }
+
+#postMessageForm {
+  width: 50%; }
+  #postMessageForm textarea {
+    width: 80%;
+    vertical-align: middle; }
+
+#messages-section > div {
+  display: table;
+  width: 100%; }
+  #messages-section > div ul {
+    width: 100%;
+    display: table-row; }
+    #messages-section > div ul li {
+      display: table-cell;
+      font-size: 20px; }
+      #messages-section > div ul li:nth-child(3) {
+        width: 10%;
+        font-size: 10px; }
+      #messages-section > div ul li:nth-child(1) {
+        width: 10%; }
+      #messages-section > div ul li:nth-child(2) {
+        width: 80%; }
+  #messages-section > div ul:nth-child(odd) {
+    background-color: snow; }
+  #messages-section > div ul:first-child {
+    font-size: 20px; }
+    #messages-section > div ul:first-child li {
+      font-size: 20px; }
+
+#account-section div {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top; }
+  #account-section div h2 {
+    text-align: center; }
+
+@media only screen and (max-width: 989px) {
+  .top-nav img {
+    width: 9%; }
+  .top-nav h1 {
+    width: 89%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; }
+  .top-nav div {
+    width: 100%; }
+    .top-nav div ul {
+      text-align: center; }
+      .top-nav div ul li a {
+        font-size: 250%; } }
+.header-content {
+  background: -moz-linear-gradient(top, rgba(167, 176, 27, 0.76) 0%, rgba(0, 116, 159, 0.76) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(167, 176, 27, 0.76)), color-stop(100%, rgba(0, 116, 159, 0.76)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(167, 176, 27, 0.76) 0%, rgba(0, 116, 159, 0.76) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(167, 176, 27, 0.76) 0%, rgba(0, 116, 159, 0.76) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(167, 176, 27, 0.76) 0%, rgba(0, 116, 159, 0.76) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(167, 176, 27, 0.76) 0%, rgba(0, 116, 159, 0.76) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2a7b01b', endColorstr='#c200749f',GradientType=0 );
+  /* IE6-9 */ }
+
+html {
+  background: white;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, white 0%, #f6f6f6 32%, #ededed 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(32%, #f6f6f6), color-stop(100%, #ededed));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, white 0%, #f6f6f6 32%, #ededed 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, white 0%, #f6f6f6 32%, #ededed 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, white 0%, #f6f6f6 32%, #ededed 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, white 0%, #f6f6f6 32%, #ededed 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+  /* IE6-9 */ }
+
+@font-face {
+  font-family: 'caviar_dreamsregular';
+  src: url("../fonts/caviardreams-webfont.eot");
+  src: url("../fonts/caviardreams-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/caviardreams-webfont.woff2") format("woff2"), url("../fonts/caviardreams-webfont.woff") format("woff"), url("../fonts/caviardreams-webfont.ttf") format("truetype"), url("../fonts/caviardreams-webfont.svg#caviar_dreamsregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*# sourceMappingURL=style.css.map */

@@ -130,13 +130,15 @@ m(function($){
             dataType:'JSON',
             contentType: "application/json",
             data:JSON.stringify(data)
-        }).done(function(data){
-                console.log(JSON.stringify(data));
-                if(data.success){
-                    window.location.replace('members');
+        }).done(function(d){
+                console.log(JSON.stringify(d));
+                if(d.success){
+                    //window.location.replace('members');
+                    $('#account-section').hide();
+                    window.alert('You have succesfully created an account, but it needs to be approved before you can access the members section. ask a coleader in chat to approve you. account info: ' + JSON.stringify(data, null, 2));
                 }else{
                     //show error message
-                    window.alert('you have failed creating an account. bummer.' + data.errorMessage);
+                    window.alert('you have failed creating an account. bummer. you probably need a different user name: ' + d.errorMessage);
                 }
             });
         console.log(JSON.stringify(data));

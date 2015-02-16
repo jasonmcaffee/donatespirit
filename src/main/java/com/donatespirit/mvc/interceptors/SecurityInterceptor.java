@@ -3,6 +3,7 @@ package com.donatespirit.mvc.interceptors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.donatespirit.mvc.dao.UserDAO;
 import com.donatespirit.mvc.model.SessionContext;
 import com.donatespirit.mvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 @Component
 public class SecurityInterceptor extends HandlerInterceptorAdapter {
     @Autowired private SessionContext sessionContext;
+    @Autowired private UserDAO userDAO;
 
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
@@ -40,12 +42,18 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
             return false;
         }else{
             if( !user.isApproved()){
-                System.out.println("user is not approved");
-                request.getSession().invalidate();
-                //response.sendRedirect("http://donatespirit.com/error");//
-                request.setAttribute("notApproved", true);
-                request.getRequestDispatcher("/error").forward(request, response);
-                return false;
+                //reload the isApproved status, so that the user can view the page as soon as approval occurs.
+                user.setApproved( userDAO.getUserByUserId(user.getId()).isApproved());
+                if(!user.isApproved()){
+                    System.out.println("user is not approved");
+                    //request.getSession().invalidate(); <-- if we do this then
+
+                    //response.sendRedirect("http://donatespirit.com/error");//
+                    request.setAttribute("notApproved", true);
+                    request.getRequestDispatcher("/error").forward(request, response);
+                    return false;
+                }
+
             }
             System.out.println("user is signed in as:" + user.getUserName());
         }

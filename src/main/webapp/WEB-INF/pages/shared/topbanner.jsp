@@ -7,7 +7,8 @@
             <h1>Donate Spirit ${user.userName}</h1>
             <div>
                 <ul>
-                    <li><a href="/members">Members</a></li><!--
+                    <li><a href="/">Home</a></li><!--
+                    --><li><a href="/members">Members</a></li><!--
                         --><li><a href="/strategies">Strategy</a></li><!--
                         --><li><a href="/approvals">Approvals</a></li> <!--
                         --><li><a href="/images"></a></li> <!--

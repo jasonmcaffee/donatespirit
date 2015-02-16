@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Images</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <%@ include file="/WEB-INF/pages/shared/head.jsp" %>
 </head>
 <body>
     <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>

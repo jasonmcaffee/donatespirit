@@ -2,7 +2,8 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <title>Members</title>
+    <%@ include file="/WEB-INF/pages/shared/head.jsp" %>
 </head>
 <body>
 

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <%@ include file="/WEB-INF/pages/shared/head.jsp" %>
 </head>
 <body>
 
@@ -37,6 +37,7 @@
             --><li>First Attack: Attack your exact opposite. eg if you are 12, attack 12</li><!--
             --><li>Second Attack: Attack the hardest base you are certain you can 3 star.</li><!--
             --><li>Second Attack: Only attack a base that has been attacked.</li><!--
+            --><li>8 hours before war ends, you can attack a base which has not been attacked (so long as you can 3 star)</li><!--
             --><li>Only use strong troops during war.</li><!--
             --><li>If you need a break from war you can go to Donate Spirit 2.</li><!--
             --><li>Read the guide found on the Strategy link.</li><!--

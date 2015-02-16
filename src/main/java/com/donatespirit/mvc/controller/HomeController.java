@@ -1,6 +1,7 @@
 package com.donatespirit.mvc.controller;
 
 import com.donatespirit.mvc.model.SessionContext;
+import com.donatespirit.mvc.service.Emailer;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,7 +41,10 @@ public class HomeController {
 
     @RequestMapping( value="/error", method = RequestMethod.GET)
     public String error(HttpServletRequest request, ModelMap model) {
-        boolean notSignedIn = (Boolean)request.getAttribute("notSignedIn");
+        boolean notSignedIn = false;
+        if(request != null && request.getAttribute("notSignedIn") != null){
+            notSignedIn =(Boolean)request.getAttribute("notSignedIn");
+        }
         String errorMessage = "general error.";
         if(notSignedIn){
             errorMessage = "You must be signed in to view this page.";
@@ -50,6 +54,20 @@ public class HomeController {
         model.addAttribute("errorMessage", errorMessage);
 
         return "error";
+    }
+
+    @RequestMapping( value="/mail", method = RequestMethod.GET)
+    public String mail(ModelMap model) {
+        model.addAttribute("message", "Hello world!");
+        List<User> users = userDAO.findAll();
+        model.addAttribute("users", users);
+        Emailer email = new Emailer();
+        email.sendEmail("jasonlmcaffee@gmail.com");
+
+        if(sessionContext.getUser() != null && sessionContext.getUser().isSignedIn()){
+            model.addAttribute("user", sessionContext.getUser());
+        }
+        return "home";
     }
 
 }

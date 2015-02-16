@@ -2,8 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="resources/css/strategy.css">
+    <%@ include file="/WEB-INF/pages/shared/head.jsp" %>
+
 </head>
 <body>
+    <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
+
     <h1>Strategy - By Onyx</h1>
     <h2>Good attacks</h2>
     <div>These are strategies that we know work <b>in war</b>.  If you can get 3* some other way - that's fine!  But if you don't get 2/3* most times, then please try one of these...

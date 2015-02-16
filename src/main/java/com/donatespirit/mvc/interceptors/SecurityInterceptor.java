@@ -34,6 +34,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
         User user = sessionContext.getUser();
         if(user == null || !user.isSignedIn()){
             System.out.println("user is not signed in");
+            request.setAttribute("notSignedIn", true);
             //response.sendRedirect("http://donatespirit.com/error");//
             request.getRequestDispatcher("/error").forward(request, response);
             return false;
@@ -42,6 +43,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
                 System.out.println("user is not approved");
                 request.getSession().invalidate();
                 //response.sendRedirect("http://donatespirit.com/error");//
+                request.setAttribute("notApproved", true);
                 request.getRequestDispatcher("/error").forward(request, response);
                 return false;
             }

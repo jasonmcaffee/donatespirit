@@ -40,7 +40,14 @@ public class HomeController {
 
     @RequestMapping( value="/error", method = RequestMethod.GET)
     public String error(HttpServletRequest request, ModelMap model) {
-        model.addAttribute("errorMessage", "You are either not signed in, or your account has not been approved yet. Ask a Co-Leader to approve your account.");
+        boolean notSignedIn = (Boolean)request.getAttribute("notSignedIn");
+        String errorMessage = "general error.";
+        if(notSignedIn){
+            errorMessage = "You must be signed in to view this page.";
+        }else{
+            errorMessage = "Your account has not been approved yet. Ask a coleader to approve so you can view member pages.";
+        }
+        model.addAttribute("errorMessage", errorMessage);
 
         return "error";
     }

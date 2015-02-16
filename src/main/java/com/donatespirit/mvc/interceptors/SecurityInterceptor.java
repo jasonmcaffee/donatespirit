@@ -19,8 +19,13 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-        String ipAddress = request.getHeader("x-forwarded-for");
 
+        //determine if the request is an ajax request.
+        String ipAddress = request.getHeader("x-forwarded-for");
+        String ajaxHeader = request.getHeader("X-Requested-With");
+        boolean isAjax = ajaxHeader != null && ajaxHeader.length() > 0 && ajaxHeader.equalsIgnoreCase("XMLHttpRequest");
+
+        //checked for blocked ip addresses
         System.out.println("user is trying to get to"+ request.getRequestURI() + " with ip:" + ipAddress);
         if(isIpBlocked(ipAddress)){
             response.sendRedirect("http://lemonparty.org");
@@ -29,14 +34,15 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
         User user = sessionContext.getUser();
         if(user == null || !user.isSignedIn()){
             System.out.println("user is not signed in");
-            response.sendRedirect("http://donatespirit.com/error");//
-
+            //response.sendRedirect("http://donatespirit.com/error");//
+            request.getRequestDispatcher("/error").forward(request, response);
             return false;
         }else{
             if( !user.isApproved()){
                 System.out.println("user is not approved");
                 request.getSession().invalidate();
-                response.sendRedirect("http://donatespirit.com/error");//
+                //response.sendRedirect("http://donatespirit.com/error");//
+                request.getRequestDispatcher("/error").forward(request, response);
                 return false;
             }
             System.out.println("user is signed in as:" + user.getUserName());

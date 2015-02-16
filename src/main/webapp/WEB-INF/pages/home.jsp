@@ -18,7 +18,8 @@
             --><li>Co is earned through trust. Other Cos must vote to have you promoted.</li><!--
             --><li>Keep cussing to a minimum.</li><!--
             --><li>Be nice. Use constructive criticism. Mean people get kicked.</li><!--
-            --><li>If you leave, you must stay gone for a day, and you will lose any rank.</li><!--
+            --><li>If you leave, you must stay gone for a week, and you will lose any rank.</li><!--
+            --><li>Don't talk about leaving, just leave. If you talk about leaving you will be kicked.</li><!--
             --><li>If you try to poach members when you leave, you will be banned.</li><!--
             --><li>Only Cos can kick or promote.</li><!--
             --><li></li><!--
@@ -52,7 +53,7 @@
         <img src="resources/img/wizard.png"/>
         <ul>
             <li>120 war hero</li><!--
-            --><li>lvl 3 drags or lvl 2 pekkas</li><!--
+            --><li>lvl 3 drags or lvl 2 pekkas or lvl 4 hogs</li><!--
             --><li>Must be highly active. if you aren't playing at least an hour a day, don't bother joining.</li><!--
             --><li>5000+ friend in need.</li><!--
             --><li></li><!--

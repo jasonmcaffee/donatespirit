@@ -65,6 +65,11 @@ public class MembersController {
         if(approvedUser != null){
             approvedUser.setApproved(true);
             userDAO.updateUser(approvedUser);
+            Message message = new Message();
+            message.setUserId(45);
+            message.setIp("system");
+            message.setMessage("(auto generated): " + sessionContext.getUser().getUserName() + " approved new user: " + approvedUser.getUserName());
+            messageDAO.addMessage(message);
         }else{
             model.addAttribute("error", "that user does not exist.");
         }

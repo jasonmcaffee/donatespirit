@@ -10,6 +10,7 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
+        <jetty.port>8080</jetty.port>
     </properties>
 
     <dependencies>
@@ -199,9 +200,18 @@
                 <configuration>
                     <webAppConfig>
                         <contextPath>/</contextPath>
+
                     </webAppConfig>
+
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>${jetty.port}</port>
+                        </connector>
+                    </connectors>
                     <jettyConfig>src/jetty.xml</jettyConfig>
                 </configuration>
+
+
             </plugin>
 
             <plugin>
@@ -215,7 +225,12 @@
     </build>
 </project>
 
-
+<!--<connectors>-->
+<!--<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">-->
+    <!--<maxIdleTime>3600000</maxIdleTime>-->
+    <!--<port>${jetty.port}</port>-->
+<!--</connector>-->
+<!--</connectors>-->
         <!--<plugin>-->
         <!--<groupId>org.eclipse.jetty</groupId>-->
         <!--<artifactId>jetty-maven-plugin</artifactId>-->

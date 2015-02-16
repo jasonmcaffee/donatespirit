@@ -26,7 +26,7 @@ public class UserController {
 
     //@ModelAttribute("sessionContext") SessionContext sessionContext
     @RequestMapping(value = "/user/signin", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser, @RequestHeader(value="x-forwarded-for") String ipAddress){
+    public @ResponseBody ModelMap signIn(@RequestBody User attemptedUser){ //, @RequestHeader(value="x-forwarded-for") String ipAddress -- this blows up when running localhost:8081 since no proxy
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 

@@ -24,7 +24,7 @@ CREATE TABLE `UserInfo` (
   `creationIp` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_userId` (`userId`),
-  CONSTRAINT `userinfo_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+  CONSTRAINT `userinfo_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
@@ -35,7 +35,7 @@ CREATE TABLE donatespirit.Message
     message varchar(5000) NOT NULL,
     date datetime NOT NULL,
     ip varchar(25),
-    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
 );
 
 CREATE TABLE donatespirit.Image
@@ -45,5 +45,5 @@ CREATE TABLE donatespirit.Image
     imagePath varchar(1000),
     date datetime NOT NULL,
     description varchar(2000),
-    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+    CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
 );

@@ -8,8 +8,8 @@
 <body>
     <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
 
-
-    <form action="images/updload">
+    <div>${errorMessage}</div>
+    <form action="images/upload" method="post" enctype="multipart/form-data">
         <label>image</label><input name="image" type="file" required/>
         <label>description</label><input name="description" type="text" required/>
         <input type="submit"/>

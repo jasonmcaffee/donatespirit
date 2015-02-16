@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,23 +31,32 @@ public class ImageController {
         return "images";
     }
 
-    @RequestMapping( value="/images/upload", method = RequestMethod.GET)
+    @RequestMapping( value="/images/upload", method = RequestMethod.POST)
     public String uploadImage(@RequestParam("image") MultipartFile file, ModelMap model) {
-        if(sessionContext.getUser() == null || !sessionContext.getUser().isSignedIn()){
-            //return error
+        long userId = sessionContext.getUser().getId();
+        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");//dd/MM/yyyy
+        Date now = new Date();
+        String strDate = sdfDate.format(now);
+
+        String parts[] = file.getContentType().split("/");
+        if(parts.length <= 1 || parts[0].equalsIgnoreCase("image")){
+            model.addAttribute("errorMessage", "invalid file type");
+            return "images";
         }
+        String fileName = userId +"_"+ strDate + "." + parts[1];
 
         if(!file.isEmpty()){
             try{
                 File dir = new File(uploadDir);
-
-                File serverFile = new File(uploadDir + "/" + file.getName());
+                File serverFile = new File(dir.getAbsolutePath() + "/" + fileName);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(file.getBytes());
+                stream.close();
             }catch(Exception e){
-
+                System.out.println("error uploading imaga:" + e.getMessage());
             }
         }
-
-
         return "images";
     }
 }

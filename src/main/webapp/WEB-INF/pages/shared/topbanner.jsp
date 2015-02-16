@@ -11,6 +11,7 @@
                     --><li><a href="/members">Members</a></li><!--
                         --><li><a href="/strategies">Strategy</a></li><!--
                         --><li><a href="/approvals">Approvals</a></li> <!--
+                        --><li><a href="/registeredUsers">Users</a></li> <!--
                         --><li><a href="/images"></a></li> <!--
                         -->
                 </ul>

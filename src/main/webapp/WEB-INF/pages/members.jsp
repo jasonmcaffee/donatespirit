@@ -24,17 +24,9 @@
         </ul>
 
         <c:forEach var="message" items="${messages}">
-            <ul><li><c:out value="${message.user.userName}"/></li><li><c:out value="${message.message}"/></li><li>${message.date}</li></ul>
+            <ul><li><c:out value="${message.user.userName}"/></li><li>${message.formattedMessage}</li><li>${message.date}</li></ul>
         </c:forEach>
     </div>
-</section>
-<section id="members-section">
-    <h3>Registered Users</h3>
-    <c:forEach var="user" items="${users}">
-        <div>
-            <span><c:out value="${user.userName}"/></span>
-        </div>
-    </c:forEach>
 </section>
 
 

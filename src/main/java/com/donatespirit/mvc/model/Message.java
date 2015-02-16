@@ -1,5 +1,7 @@
 package com.donatespirit.mvc.model;
 
+import org.springframework.web.util.HtmlUtils;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -41,6 +43,13 @@ public class Message {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getFormattedMessage(){
+        //html encode everything but the <br/>
+        String message = HtmlUtils.htmlEscape(getMessage());
+        String formatted = message.replaceAll("\n", "<br>");
+        return formatted;
     }
 
     public void setMessage(String message) {

@@ -35,9 +35,6 @@ public class MembersController {
     public String printWelcome(ModelMap model) {
         model.addAttribute("user", sessionContext.getUser());
 
-        List<User> users = userDAO.findAll();
-        model.addAttribute("users", users);
-
         List<Message> messages = messageDAO.findAll();
         model.addAttribute("messages", messages);
 
@@ -99,6 +96,18 @@ public class MembersController {
         }
 
         return map;
+    }
+
+    /**
+     * Show all registered users for the site.
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="/registeredUsers", method = RequestMethod.GET)
+    public String showRegisteredUsers(ModelMap model){
+        List<User> users = userDAO.findAll();
+        model.addAttribute("users", users);
+        return "registeredUsers";
     }
 
 }

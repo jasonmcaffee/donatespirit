@@ -47,3 +47,25 @@ CREATE TABLE donatespirit.Image
     description varchar(2000),
     CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
 );
+
+CREATE TABLE donatespirit.VoteTopic
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    date datetime NOT NULL,
+    topic varchar(5000) NOT NULL,
+    expiresDate datetime NOT NULL
+);
+
+CREATE TABLE donatespirit.UserVote
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    voteTopicId int NOT NULL,
+    userId int NOT NULL,
+    vote TINYINT(1) NOT NULL,
+    date datetime NOT NULL,
+    CONSTRAINT `votetopic_ibfk_1` FOREIGN KEY (`voteTopicId`) REFERENCES `VoteTopic` (`id`) on delete cascade,
+    CONSTRAINT `user_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
+);
+
+-- ensure users can't vote more than once on a votetopic
+CREATE UNIQUE INDEX one_vote_per_topic_constraint ON UserVote (userId, voteTopicId);

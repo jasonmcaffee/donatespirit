@@ -1,0 +1,50 @@
+.vote-topics{
+  padding: 0% 5% 0% 5%;
+  width:100%;
+
+  .vote-topic{
+    padding: 2%;
+    width: 25%;
+    margin-bottom: 10px;
+
+    -webkit-box-shadow: 0px 5px 9px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 5px 9px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 5px 9px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border: 0px solid #000000;
+
+    .topic{
+      width:100%;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .vote-count{
+      width:100%;
+      font-size: 70%;
+    }
+    .vote{
+      text-align: center;
+      margin-top: 5px;
+
+      div{
+        width: 100px;
+        heigth: 50px;
+        display:inline-block;
+        text-align: center;
+        line-height: 50px;
+        cursor:pointer;
+        border-radius: 4px 4px 4px 4px;
+        -moz-border-radius: 4px 4px 4px 4px;
+        -webkit-border-radius: 4px 4px 4px 4px;
+      }
+      .vote-yes{
+        background-color: #31540c;
+      }
+      .vote-no{
+        background-color: red;
+      }
+    }
+  }
+}

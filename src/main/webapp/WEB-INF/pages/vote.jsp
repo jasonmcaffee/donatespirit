@@ -8,8 +8,8 @@
   <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
   <h1>Vote</h1>
 
-  <c:forEach var="voteTopic" items="${voteTopics}">
-    <ul><li><c:out value="${voteTopic.topic}"/></li><li>${voteTopic.yesVotes}</li><li>${voteTopic.noVotes}</li><li>${voteTopic.totalVotes}</li><li>${voteTopic.date}</li><li>${voteTopic.expiresDate}</li></ul>
+  <c:forEach items="${voteTopics}" var="vt">
+    <ul><li><c:out value="${vt.topic}"/></li><li>${vt.yesVotes}</li><li>${vt.noVotes}</li><li>${vt.totalVotes}</li><li>${vt.date}</li><li>${vt.expiresDate}</li></ul>
   </c:forEach>
 
   <script src="resources/js/modulus.js"></script>

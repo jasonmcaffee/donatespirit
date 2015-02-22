@@ -51,9 +51,9 @@ CREATE TABLE donatespirit.Image
 CREATE TABLE donatespirit.VoteTopic
 (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    date datetime NOT NULL,
+    date TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
     topic varchar(5000) NOT NULL,
-    expiresDate datetime NOT NULL
+    expiresDate TIMESTAMP NOT NULL
 );
 
 CREATE TABLE donatespirit.UserVote
@@ -62,7 +62,7 @@ CREATE TABLE donatespirit.UserVote
     voteTopicId int NOT NULL,
     userId int NOT NULL,
     vote TINYINT(1) NOT NULL,
-    date datetime NOT NULL,
+    date TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
     CONSTRAINT `votetopic_ibfk_1` FOREIGN KEY (`voteTopicId`) REFERENCES `VoteTopic` (`id`) on delete cascade,
     CONSTRAINT `user_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) on delete cascade
 );

@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +31,14 @@ public class VoteController {
         List<VoteTopic> voteTopics = voteTopicDAO.findAll();
         model.addAttribute("voteTopics", voteTopics);
 
+
+        List<String> things = new ArrayList<String>();
+        things.add("hello");
+
+        model.addAttribute("things", things);
         return "vote";
     }
 
 }
+
+

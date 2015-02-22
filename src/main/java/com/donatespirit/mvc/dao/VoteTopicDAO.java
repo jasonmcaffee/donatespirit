@@ -21,14 +21,16 @@ public class VoteTopicDAO {
     @Transactional
     public List<VoteTopic> findAll() {
         Session session = sessionFactory.getCurrentSession();
-//        List<VoteTopic> voteTopics = session.createSQLQuery("select vt.id, vt.date, vt.topic, vt.expiresDate, " +
-//                "SUM(UserVote.vote) as yesVotes, " +
-//                "SUM(CASE WHEN UserVote.vote = 0 THEN 1 ELSE 0 END) as noVotes, " +
-//                "count(UserVote.vote) as totalVotes " +
-//                "from VoteTopic vt " +
-//                "join UserVote on vt.id = UserVote.voteTopicId").setMaxResults(500).list();
+        List<VoteTopic> voteTopics = session.createSQLQuery("select vt.id, vt.date, vt.topic, vt.expiresDate, " +
+               "SUM(UserVote.vote) as yesVotes, " +
+                "SUM(CASE WHEN UserVote.vote = 0 THEN 1 ELSE 0 END) as noVotes, " +
+               "count(UserVote.vote) as totalVotes " +
+                "from VoteTopic vt " +
+                "join UserVote on vt.id = UserVote.voteTopicId " +
+                "group by vt.id").addEntity(VoteTopic.class).setMaxResults(500).list();
 
-        List<VoteTopic> voteTopics = session.createSQLQuery( "from VoteTopic").setMaxResults(500).list();
+
+       // List<VoteTopic> voteTopics = session.createSQLQuery( "select * from VoteTopic").list(); //.setMaxResults(500).
         return voteTopics;
     }
 }

@@ -78,7 +78,7 @@ public class MembersController {
     }
 
     @RequestMapping(value = "/message/create", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-    public @ResponseBody ModelMap createUser(@RequestBody Message message, @RequestHeader(value="x-forwarded-for") String ipAddress){
+    public @ResponseBody ModelMap createUser(@RequestBody Message message, @RequestHeader(required = false, value="x-forwarded-for") String ipAddress){
         ModelMap map = new ModelMap();
         map.addAttribute("success", true);
 

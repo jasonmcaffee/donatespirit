@@ -1,8 +1,6 @@
 package com.donatespirit.mvc.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -37,7 +35,6 @@ public class VoteTopic {
     public void setExpiresDate(Date expiresDate) { this.expiresDate = expiresDate; }
 
     private int yesVotes;
-
     public int getYesVotes() {
         return yesVotes;
     }
@@ -50,6 +47,7 @@ public class VoteTopic {
         return noVotes;
     }
 
+
     public void setNoVotes(int noVotes) {
         this.noVotes = noVotes;
     }
@@ -58,11 +56,35 @@ public class VoteTopic {
         return totalVotes;
     }
 
+
     public void setTotalVotes(int totalVotes) {
         this.totalVotes = totalVotes;
     }
 
+
     private int noVotes;
+
     private int totalVotes;
+
+    public long getCreatorUserId() {
+        return creatorUserId;
+    }
+
+    public void setCreatorUserId(long creatorUserId) {
+        this.creatorUserId = creatorUserId;
+    }
+
+    private long creatorUserId;
+
+    public String getCreatorUserName() {
+        return creatorUserName;
+    }
+
+    public void setCreatorUserName(String creatorUserName) {
+        this.creatorUserName = creatorUserName;
+    }
+
+    private String creatorUserName;
+
 
 }

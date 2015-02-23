@@ -1,5 +1,7 @@
 package com.donatespirit.mvc.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -29,25 +31,25 @@ public class UserVote {
     public Date getDate() {  return date;  }
     public void setDate(Date date) {  this.date = date; }
 
-    private int voteTopicID;
+    private int voteTopicId;
 
-    public int getVoteTopicID() {
-        return voteTopicID;
+    public int getVoteTopicId() {
+        return voteTopicId;
     }
 
-    public void setVoteTopicID(int voteTopicID) {
-        this.voteTopicID = voteTopicID;
+    public void setVoteTopicId(int voteTopicId) {
+        this.voteTopicId = voteTopicId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    public boolean isVote() {
+    public boolean getVote() {
         return vote;
     }
 
@@ -55,7 +57,9 @@ public class UserVote {
         this.vote = vote;
     }
 
-    private int userId;
+    private long userId;
+
+    //@Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean vote;
 
 }

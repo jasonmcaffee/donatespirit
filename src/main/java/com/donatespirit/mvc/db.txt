@@ -53,7 +53,9 @@ CREATE TABLE donatespirit.VoteTopic
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     date TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
     topic varchar(5000) NOT NULL,
-    expiresDate TIMESTAMP NOT NULL
+    expiresDate TIMESTAMP NOT NULL,
+    creatorUserId int NOT NULL,
+    CONSTRAINT `user_ibfk_3` FOREIGN KEY (`creatorUserId`) REFERENCES `User` (`id`) on delete cascade
 );
 
 CREATE TABLE donatespirit.UserVote

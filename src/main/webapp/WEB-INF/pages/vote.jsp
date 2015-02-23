@@ -9,10 +9,16 @@
   <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
   <h1>Vote</h1>
 
+  <form id="createVoteTopicForm">
+    <textarea name="topic" placeholder="Enter a description for a topic you would like others to vote on."></textarea>
+    <input type="submit" value="Create a Vote Topic"/>
+  </form>
+
   <div class="vote-topics">
 
     <c:forEach items="${voteTopics}" var="vt">
       <ul class="vote-topic">
+        <li class="topic-creator"><c:out value="${vt.creatorUserName}"/></li>
         <li class="topic"><c:out value="${vt.topic}"/></li>
         <li class="vote-count">Votes Yes: ${vt.yesVotes}</li>
         <li class="vote-count">Votes No: ${vt.noVotes}</li>
@@ -20,8 +26,18 @@
         <%--<li>${vt.date}</li>--%>
         <%--<li>${vt.expiresDate}</li>--%>
         <li class="vote">
-          <div class="vote-yes">Yes</div>
-          <div class="vote-no">No</div>
+          <form class="cast-vote-form">
+            <button type="submit" class="vote-yes">Yes</button>
+            <input type="hidden" name="vote" value="true"/>
+            <input type="hidden" name="voteTopicId" value="${vt.id}"/>
+          </form>
+          <form class="cast-vote-form">
+            <button type="submit" class="vote-no">No</button>
+            <input type="hidden" name="vote" value="false"/>
+            <input type="hidden" name="voteTopicId" value="${vt.id}"/>
+          </form>
+          <%--<div class="vote-yes">Yes</div>--%>
+          <%--<div class="vote-no">No</div>--%>
         </li>
       </ul>
     </c:forEach>

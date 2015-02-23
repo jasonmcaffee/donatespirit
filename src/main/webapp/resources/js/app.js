@@ -171,6 +171,9 @@ m(function($){
 
 });
 
+/**
+ * Post Message
+ */
 m(function($){
     $(document).on('submit', '#postMessageForm', function(e){
         e.preventDefault();
@@ -196,6 +199,66 @@ m(function($){
 
 });
 
+
+/**
+ * Cast vote
+ */
+m(function($){
+    $(document).on('submit', '.cast-vote-form', function(e){
+        e.preventDefault();
+        var data = $(this).serializeObject();
+
+        $.ajax({
+            url:'vote/castvote',
+            type:'POST',
+            dataType:'JSON',
+            contentType: "application/json",
+            data:JSON.stringify(data)
+        }).done(function(data){
+            console.log(JSON.stringify(data));
+            if(data.success){
+                window.location.replace('vote');
+            }else{
+                //show error message
+                window.alert('you have failed casting a vote. bummer.' + data.errorMessage);
+            }
+        }).error(function(e){
+            window.alert('error casting vote: ' + e);
+        });
+        console.log(JSON.stringify(data));
+    });
+
+});
+
+/**
+ * Create a topic to vote on
+ */
+m(function($){
+    $(document).on('submit', '#createVoteTopicForm', function(e){
+        e.preventDefault();
+        var data = $(this).serializeObject();
+
+        $.ajax({
+            url:'vote/createvotetopic',
+            type:'POST',
+            dataType:'JSON',
+            contentType: "application/json",
+            data:JSON.stringify(data)
+        }).done(function(data){
+            console.log(JSON.stringify(data));
+            if(data.success){
+                window.location.replace('vote');
+            }else{
+                //show error message
+                window.alert('you have failed to create a vote topic. ' + data.errorMessage);
+            }
+        }).error(function(e){
+            window.alert('error casting vote: ' + e);
+        });
+        console.log(JSON.stringify(data));
+    });
+
+});
 m(function($){
 //    var socket = new WebSocket('ws://donatespirit.com/websocket');
 //

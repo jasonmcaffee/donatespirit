@@ -30,7 +30,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
         //checked for blocked ip addresses
         System.out.println("user is trying to get to"+ request.getRequestURI() + " with ip:" + ipAddress);
         if(isIpBlocked(ipAddress)){
-            response.sendRedirect("http://lemonparty.org");
+            response.sendRedirect("http://no.org");
             return false;
         }
         User user = sessionContext.getUser();

@@ -1,3 +1,15 @@
+#createVoteTopicForm{
+  width: 50%;
+  textarea{
+    width: 100%;
+    vertical-align: middle;
+  }
+  input[type="submit"]{
+    margin-top: 10px;
+    text-align: right;
+  }
+}
+
 .vote-topics{
   padding: 0% 5% 0% 5%;
   width:100%;
@@ -15,6 +27,11 @@
     -webkit-border-radius: 4px 4px 4px 4px;
     border: 0px solid #000000;
 
+    .topic-creator{
+      width:100%;
+      font-size:50%;
+      text-align: center;
+    }
     .topic{
       width:100%;
       font-weight: bold;
@@ -28,7 +45,11 @@
       text-align: center;
       margin-top: 5px;
 
-      div{
+      form{
+        display:inline-block;
+        padding: 0;
+      }
+      form > button{
         width: 100px;
         heigth: 50px;
         display:inline-block;

@@ -2,6 +2,7 @@ package com.donatespirit.mvc.controller;
 
 import com.donatespirit.mvc.dao.VoteDAO;
 import com.donatespirit.mvc.model.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -36,6 +37,15 @@ public class VoteController {
 
         List<VoteTopic> voteTopics = voteDAO.findAll();
         model.addAttribute("voteTopics", voteTopics);
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String voteTopicsJson = mapper.writeValueAsString(voteTopics);
+            model.addAttribute("voteTopicsJson", voteTopicsJson);
+        }catch (Exception e){
+            model.addAttribute("success", "false");
+
+        }
 
         return "vote";
     }
@@ -76,6 +86,20 @@ public class VoteController {
         voteTopic.setCreatorUserId(user.getId());
 
         voteDAO.createVoteTopic(voteTopic);
+
+        return map;
+    }
+
+    @RequestMapping(value = "/vote/list/votetopics", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)        //, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+    public @ResponseBody
+    ModelMap listVoteTopicsJSON(){
+        ModelMap map = new ModelMap();
+        map.addAttribute("success", true);
+
+        User user = sessionContext.getUser();
+
+        List<VoteTopic> voteTopics = voteDAO.findAll();
+        map.addAttribute("voteTopics", voteTopics);
 
         return map;
     }

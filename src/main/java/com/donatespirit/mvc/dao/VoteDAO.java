@@ -36,7 +36,8 @@ public class VoteDAO {
                 "from VoteTopic vt " +
                 "left outer join UserVote on vt.id = UserVote.voteTopicId " +
                 "join User on vt.creatorUserId = User.id " +
-                "group by vt.id").addEntity(VoteTopic.class).setMaxResults(500).list();
+                "group by vt.id " +
+                "order by vt.date desc ").addEntity(VoteTopic.class).setMaxResults(500).list();
 
 
        // List<VoteTopic> voteTopics = session.createSQLQuery( "select * from VoteTopic").list(); //.setMaxResults(500).

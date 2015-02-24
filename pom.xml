@@ -215,8 +215,12 @@
                 <configuration>
                     <webAppConfig>
                         <contextPath>/</contextPath>
-
+                        <resourceBases>
+                            <resourceBase>target</resourceBase>
+                            <resourceBase>src/main/webapp</resourceBase>
+                        </resourceBases>
                     </webAppConfig>
+
 
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

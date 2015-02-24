@@ -12,7 +12,7 @@
                         --><li><a href="/strategies">Strategy</a></li><!--
                         --><li><a href="/approvals">Approvals</a></li> <!--
                         --><li><a href="/registeredUsers">Users</a></li> <!--
-                        --><li><a href="/images"></a></li> <!--
+                        --><li><a href="/vote">Vote</a></li> <!--
                         -->
                 </ul>
                 <hr/>

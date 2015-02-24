@@ -7,13 +7,14 @@
 </head>
 <body>
   <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
-  <h1>Vote</h1>
+  <h2>Create a Topic for Others to Vote On</h2>
 
   <form id="createVoteTopicForm">
     <textarea name="topic" placeholder="Enter a description for a topic you would like others to vote on."></textarea>
     <input type="submit" value="Create a Vote Topic"/>
   </form>
 
+  <h2>Vote on Topics</h2>
   <div class="vote-topics">
 
     <c:forEach items="${voteTopics}" var="vt">
@@ -44,6 +45,10 @@
 
   </div>
 
+  <script>
+    var viewModel = ${voteTopicsJson};
+    console.log(JSON.stringify(viewModel, null, 2));
+  </script>
   <script src="resources/js/modulus.js"></script>
   <script src="resources/js/app.js"></script>
 </body>

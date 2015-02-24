@@ -42,43 +42,44 @@ function buildApp(){
      * We want to expose our core modules so they can be referenced via 'core/modulename' instead of './js/core/modulename'
      * We also want to alias some of the third party libs, and expose them so they can be referenced via 'jquery', 'react', etc.
      */
-    var labeler = through.obj(function (module, enc, next) {
-        console.log('module id: ' + module.id);
-        //expose id as 'react' rather than 'nodemodules/react/react.js'
-        if(idAlias[module.id]){
-            module.id = idAlias[module.id];
-            //console.log('exposing new id: ' + module.id);
-        }
-
-        //iterate over each dependency of the module
-        Object.keys(module.deps).forEach(function (key) {
-            console.log('dep: %s key: %s', module.deps[key], key);
-            //expose core by 'core/X' rather than './js/core/X'
-            // if(key.indexOf('js/') >= 0) //only expose/tinker with core
-            module.deps[key] = key;
-
-            //if there's a dep on something we've aliased, point to the alias.
-            //e.g. instead of 'react':'some/really/long/path/react.js' do 'react':'react'
-            if(idAlias[module.deps[key]]){
-                //console.log('pointing to alias for key:' + key);
-                module.deps[key] = key;
-            }
-        });
-
-        this.push(module);
-        next();
-    });
+    //var labeler = through.obj(function (module, enc, next) {
+    //    console.log('module id: ' + module.id);
+    //    //expose id as 'react' rather than 'nodemodules/react/react.js'
+    //    if(idAlias[module.id]){
+    //        module.id = idAlias[module.id];
+    //        //console.log('exposing new id: ' + module.id);
+    //    }
+    //
+    //    //iterate over each dependency of the module
+    //    Object.keys(module.deps).forEach(function (key) {
+    //        console.log('dep: %s key: %s', module.deps[key], key);
+    //        //expose core by 'core/X' rather than './js/core/X'
+    //        // if(key.indexOf('js/') >= 0) //only expose/tinker with core
+    //        module.deps[key] = key;
+    //
+    //        //if there's a dep on something we've aliased, point to the alias.
+    //        //e.g. instead of 'react':'some/really/long/path/react.js' do 'react':'react'
+    //        if(idAlias[module.deps[key]]){
+    //            //console.log('pointing to alias for key:' + key);
+    //            module.deps[key] = key;
+    //        }
+    //    });
+    //
+    //    this.push(module);
+    //    next();
+    //});
 
 
 
 
     function getAppFilePaths(){
-        var files =glob.sync("core/**/*.js*", { //./src/js/
-            cwd: buildConfig.jsBaseDir
-        });
-        files = _.filter(files, function(filePath){
-            return filePath.indexOf('vendor/') < 0;
-        });
+        //var files =glob.sync("core/**/*.js*", { //./src/js/
+        //    cwd: buildConfig.jsBaseDir
+        //});
+        //files = _.filter(files, function(filePath){
+        //    return filePath.indexOf('vendor/') < 0;
+        //});
+        var files = [];
         files.push("app2");
 
         var withoutExtensions=[];
@@ -96,7 +97,8 @@ function buildApp(){
     console.log('build:app browserify config: %s', JSON.stringify(browserifyConfig, null, 2));
 
     var bundler = browserify(browserifyConfig);
-    bundler.pipeline.get('label').splice(0, 1, labeler);//rename module ids
+
+   // bundler.pipeline.get('label').splice(0, 1, labeler);//rename module ids
 
     //require any third party libraries.
     bundler.require(buildConfig.jsBaseDir + '/vendor/jquery.js', {expose:'jquery'}); //expose is how the modules require it. e.g. require('jquery');

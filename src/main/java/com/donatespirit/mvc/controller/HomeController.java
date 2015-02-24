@@ -39,6 +39,18 @@ public class HomeController {
 		return "home";
 	}
 
+    @RequestMapping( value="/spa", method = RequestMethod.GET)
+    public String spa(ModelMap model) {
+        model.addAttribute("message", "Hello world!");
+        List<User> users = userDAO.findAll();
+        model.addAttribute("users", users);
+
+        if(sessionContext.getUser() != null && sessionContext.getUser().isSignedIn()){
+            model.addAttribute("user", sessionContext.getUser());
+        }
+        return "spa";
+    }
+
     @RequestMapping( value="/error", method = RequestMethod.GET)
     public String error(HttpServletRequest request, ModelMap model) {
         boolean notSignedIn = false;

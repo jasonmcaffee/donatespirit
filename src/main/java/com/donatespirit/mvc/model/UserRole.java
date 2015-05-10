@@ -1,18 +1,48 @@
 package com.donatespirit.mvc.model;
 
+
+
+import javax.persistence.*;
+
+import javax.persistence.Id;
+
 /**
  * Created by jason on 5/10/15.
  */
-public enum UserRole {
-    COLEADER("coleader"), LEADER("leader"), ELDER("elder");
+@Entity
+public class UserRole {
+    @Id
+    @GeneratedValue
+    private int id;
 
-    private final String value;
+    @Enumerated(EnumType.STRING)
+    private UserRoleType role;
 
-    private UserRole(String value){
-        this.value = value;
+    public int getUserId() {
+        return userId;
     }
 
-    public String getValue(){
-        return this.value;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public UserRoleType getRole() {
+        return role;
+    }
+
+    public void setRole(UserRoleType role) {
+        this.role = role;
+    }
+
+    private int userId;
+
+
 }

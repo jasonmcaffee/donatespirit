@@ -11,7 +11,12 @@
     <c:forEach var="user" items="${users}">
       <div>
         <span><c:out value="${user.userName}"/></span>
+
+        <c:forEach var="roleType" items="${user.userRoleTypes}">
+          <span><c:out value="${roleType}"></c:out></span>
+        </c:forEach>
       </div>
+
     </c:forEach>
   </section>
 

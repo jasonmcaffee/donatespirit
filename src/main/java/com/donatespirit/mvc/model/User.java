@@ -5,16 +5,18 @@ package com.donatespirit.mvc.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 import javax.persistence.*;
 
-import com.donatespirit.mvc.model.UserInfo;
-import org.hibernate.annotations.Type;
-
 //
-//
+//http://stackoverflow.com/questions/9958290/hibernate-simple-jointable-without-using-entity
 @Entity
+//@SecondaryTable(
+//        name="UserRole",
+//        pkJoinColumns = @PrimaryKeyJoinColumn(name="userId")
+//)
 //@Table(name = "users")
 public class User implements Serializable {
     @Id @GeneratedValue private long id;
@@ -66,6 +68,34 @@ public class User implements Serializable {
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
+
+    //@OneToMany
+//    @Column(table="UserRole", name="role")
+//    private List<UserRoleType> userRoleTypes;
+
+    public List<UserRole> getUserRoleList() {
+        return userRoleList;
+    }
+
+    public void setUserRoleList(List<UserRole> userRoleList) {
+        this.userRoleList = userRoleList;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    //@JoinColumn(name="id")
+    @JoinTable(
+            name="UserRole",
+            joinColumns = @JoinColumn(name="userId"),
+            inverseJoinColumns = @JoinColumn(name = "id")
+    )
+    private List<UserRole> userRoleList;
+
+    @Transient
+    public List<UserRoleType> getUserRoleTypes(){
+        return userRoleList.stream().map(userRole -> userRole.getRole()).collect(Collectors.toList());
+    }
+
+
 
 //    @OneToMany(mappedBy = "pizza", fetch = FetchType.LAZY)
 //    private List<Topping> toppings;

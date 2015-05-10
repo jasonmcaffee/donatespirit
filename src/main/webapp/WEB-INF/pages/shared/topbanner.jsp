@@ -8,7 +8,7 @@
             <div>
                 <ul>
                     <li><a href="/">Home</a></li><!--
-                    --><li><a href="/members">Members</a></li><!--
+                    --><li><a href="/members">Message</a></li><!--
                         --><li><a href="/strategies">Strategy</a></li><!--
                         --><li><a href="/approvals">Approvals</a></li> <!--
                         --><li><a href="/registeredUsers">Users</a></li> <!--

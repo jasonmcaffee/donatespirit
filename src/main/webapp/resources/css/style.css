@@ -141,6 +141,14 @@ form {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#993f3f3f', endColorstr='#990e0e0e',GradientType=0 );
   /* IE6-9 */ }
 
+.approve-reject-user form {
+  background: transparent;
+  display: inline-block;
+  padding: 0; }
+  .approve-reject-user form .reject-user-button {
+    background: red;
+    text-shadow: 0 0; }
+
 html {
   width: 100%; }
 

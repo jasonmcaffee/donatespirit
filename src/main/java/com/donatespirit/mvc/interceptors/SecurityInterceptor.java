@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.donatespirit.mvc.dao.UserDAO;
 import com.donatespirit.mvc.model.SessionContext;
 import com.donatespirit.mvc.model.User;
+import com.donatespirit.mvc.model.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -41,10 +42,10 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
             request.getRequestDispatcher("/error").forward(request, response);
             return false;
         }else{
-            if( !user.isApproved()){
+            if( user.getUserStatus() != UserStatus.APPROVED && user.getUserStatus() != UserStatus.REJECTED){
                 //reload the isApproved status, so that the user can view the page as soon as approval occurs.
-                user.setApproved( userDAO.getUserByUserId(user.getId()).isApproved());
-                if(!user.isApproved()){
+                user.setUserStatus( userDAO.getUserByUserId(user.getId()).getUserStatus());
+                if(user.getUserStatus() != UserStatus.APPROVED){
                     System.out.println("user is not approved");
                     //request.getSession().invalidate(); <-- if we do this then
 

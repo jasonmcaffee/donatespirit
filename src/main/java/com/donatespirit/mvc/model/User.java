@@ -24,7 +24,20 @@ public class User implements Serializable {
 
 //    @Column(columnDefinition = "TINYINT")
 //    @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean approved;
+    //private boolean approved;
+
+
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    @Column(name="approved")
+    @Enumerated(EnumType.ORDINAL)
+    private UserStatus userStatus;
 
     @Transient
     public boolean isSignedIn() {
@@ -77,8 +90,8 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public boolean isApproved() {return approved;}
-    public void setApproved(boolean approved) {this.approved = approved;}
+    //public boolean isApproved() {return approved;}
+    //public void setApproved(boolean approved) {this.approved = approved;}
 
 
 }

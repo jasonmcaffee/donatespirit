@@ -3,6 +3,7 @@ package com.donatespirit.mvc.controller;
 import com.donatespirit.mvc.dao.MessageDAO;
 import com.donatespirit.mvc.model.Message;
 import com.donatespirit.mvc.model.SessionContext;
+import com.donatespirit.mvc.model.UserStatus;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -60,12 +61,37 @@ public class MembersController {
         long uId = Long.parseLong(userId);
         User approvedUser = userDAO.getUserByUserId(uId);
         if(approvedUser != null){
-            approvedUser.setApproved(true);
+            //approvedUser.setApproved(true);
+            approvedUser.setUserStatus(UserStatus.APPROVED);
             userDAO.updateUser(approvedUser);
             Message message = new Message();
             message.setUserId(45);
             message.setIp("system");
             message.setMessage("(auto generated): " + sessionContext.getUser().getUserName() + " approved new user: " + approvedUser.getUserName());
+            messageDAO.addMessage(message);
+        }else{
+            model.addAttribute("error", "that user does not exist.");
+        }
+
+
+        List<User> unapprovedUsers = userDAO.findAllNotApproved();
+        model.addAttribute("unapprovedUsers", unapprovedUsers);
+        return "accountApproval";
+    }
+
+    @RequestMapping(value="/rejectUser", method=RequestMethod.POST)
+    public String reject(@RequestParam String userId, ModelMap model){
+        System.out.println("reject for userId: " + userId);
+        long uId = Long.parseLong(userId);
+        User rejectedUser = userDAO.getUserByUserId(uId);
+        if(rejectedUser != null){
+            //rejectedUser.setApproved(false);//need something else
+            rejectedUser.setUserStatus(UserStatus.REJECTED);
+            userDAO.updateUser(rejectedUser);
+            Message message = new Message();
+            message.setUserId(45);
+            message.setIp("system");
+            message.setMessage("(auto generated): " + sessionContext.getUser().getUserName() + " rejected new user: " + rejectedUser.getUserName());
             messageDAO.addMessage(message);
         }else{
             model.addAttribute("error", "that user does not exist.");

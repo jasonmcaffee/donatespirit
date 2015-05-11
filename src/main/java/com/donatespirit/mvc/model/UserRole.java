@@ -5,12 +5,13 @@ package com.donatespirit.mvc.model;
 import javax.persistence.*;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by jason on 5/10/15.
  */
 @Entity
-public class UserRole {
+public class UserRole implements Serializable {
     @Id
     @GeneratedValue
     private int id;

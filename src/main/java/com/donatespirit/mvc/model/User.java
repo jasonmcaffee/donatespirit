@@ -24,11 +24,6 @@ public class User implements Serializable {
     private String password;
 
 
-//    @Column(columnDefinition = "TINYINT")
-//    @Type(type = "org.hibernate.type.NumericBooleanType")
-    //private boolean approved;
-
-
     public UserStatus getUserStatus() {
         return userStatus;
     }
@@ -69,10 +64,6 @@ public class User implements Serializable {
         this.userInfo = userInfo;
     }
 
-    //@OneToMany
-//    @Column(table="UserRole", name="role")
-//    private List<UserRoleType> userRoleTypes;
-
     public List<UserRole> getUserRoleList() {
         return userRoleList;
     }
@@ -95,11 +86,11 @@ public class User implements Serializable {
         return userRoleList.stream().map(userRole -> userRole.getRole()).collect(Collectors.toList());
     }
 
-
-
-//    @OneToMany(mappedBy = "pizza", fetch = FetchType.LAZY)
-//    private List<Topping> toppings;
-
+    @Transient
+    public boolean isAllowedToAssignUserRoles(){
+        List<UserRoleType> roleTypes = getUserRoleTypes();
+        return roleTypes.contains(UserRoleType.COLEADER) || roleTypes.contains(UserRoleType.LEADER);
+    }
     /**********************************************************************/
 
     public long getId() {
@@ -124,4 +115,18 @@ public class User implements Serializable {
     //public void setApproved(boolean approved) {this.approved = approved;}
 
 
+    @Transient
+    public boolean isColeader(){
+        return getUserRoleTypes().contains(UserRoleType.COLEADER);
+    }
+
+    @Transient
+    public boolean isElder(){
+        return getUserRoleTypes().contains(UserRoleType.ELDER);
+    }
+
 }
+
+//    @Column(columnDefinition = "TINYINT")
+//    @Type(type = "org.hibernate.type.NumericBooleanType")
+//private boolean approved;

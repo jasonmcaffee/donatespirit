@@ -1,16 +1,13 @@
 package com.donatespirit.mvc.controller;
 
 import com.donatespirit.mvc.dao.MessageDAO;
-import com.donatespirit.mvc.model.Message;
-import com.donatespirit.mvc.model.SessionContext;
-import com.donatespirit.mvc.model.UserStatus;
+import com.donatespirit.mvc.model.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 
-import com.donatespirit.mvc.model.User;
 import com.donatespirit.mvc.dao.UserDAO;
 import com.donatespirit.mvc.dao.UserInfoDAO;
 
@@ -133,6 +130,8 @@ public class MembersController {
     public String showRegisteredUsers(ModelMap model){
         List<User> users = userDAO.findAll();
         model.addAttribute("users", users);
+        model.addAttribute("currentUser", sessionContext.getUser());
+        model.addAttribute("roles", UserRoleType.values());
         return "registeredUsers";
     }
 

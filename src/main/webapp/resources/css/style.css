@@ -149,24 +149,30 @@ form {
     background: red;
     text-shadow: 0 0; }
 
+#users-section form {
+  display: inline-block;
+  background: transparent; }
+  #users-section form label {
+    color: black; }
+
 html {
   width: 100%; }
 
 body {
   width: 100%; }
 
-#rules-section-1, #rules-section-2, #rules-section-3, #strategy-section, #members-section, #messages-section, #account-section {
+#users-section, #rules-section-1, #rules-section-2, #rules-section-3, #rules-section-4, #strategy-section, #members-section, #messages-section, #account-section {
   padding: 1% 5% 1% 5%;
   margin-left: auto;
   margin-right: auto;
   max-width: 1500px;
   margin-bottom: 14px; }
-  #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1 {
+  #users-section h1, #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #rules-section-4 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1 {
     font-size: 48px;
     text-align: center; }
-  #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1, #rules-section-1 h2, #rules-section-2 h2, #rules-section-3 h2, #strategy-section h2, #members-section h2, #messages-section h2, #account-section h2, #rules-section-1 h3, #rules-section-2 h3, #rules-section-3 h3, #strategy-section h3, #members-section h3, #messages-section h3, #account-section h3, #rules-section-1 h4, #rules-section-2 h4, #rules-section-3 h4, #strategy-section h4, #members-section h4, #messages-section h4, #account-section h4, #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #rules-section-1 div, #rules-section-2 div, #rules-section-3 div, #strategy-section div, #members-section div, #messages-section div, #account-section div, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
+  #users-section h1, #rules-section-1 h1, #rules-section-2 h1, #rules-section-3 h1, #rules-section-4 h1, #strategy-section h1, #members-section h1, #messages-section h1, #account-section h1, #users-section h2, #rules-section-1 h2, #rules-section-2 h2, #rules-section-3 h2, #rules-section-4 h2, #strategy-section h2, #members-section h2, #messages-section h2, #account-section h2, #users-section h3, #rules-section-1 h3, #rules-section-2 h3, #rules-section-3 h3, #rules-section-4 h3, #strategy-section h3, #members-section h3, #messages-section h3, #account-section h3, #users-section h4, #rules-section-1 h4, #rules-section-2 h4, #rules-section-3 h4, #rules-section-4 h4, #strategy-section h4, #members-section h4, #messages-section h4, #account-section h4, #users-section p, #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #rules-section-4 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #users-section div, #rules-section-1 div, #rules-section-2 div, #rules-section-3 div, #rules-section-4 div, #strategy-section div, #members-section div, #messages-section div, #account-section div, #users-section li, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #rules-section-4 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
     color: #58595b; }
-  #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
+  #users-section p, #rules-section-1 p, #rules-section-2 p, #rules-section-3 p, #rules-section-4 p, #strategy-section p, #members-section p, #messages-section p, #account-section p, #users-section li, #rules-section-1 li, #rules-section-2 li, #rules-section-3 li, #rules-section-4 li, #strategy-section li, #members-section li, #messages-section li, #account-section li {
     font-size: 36px; }
 
 header {
@@ -231,6 +237,13 @@ header {
 #rules-section-3 img {
   width: 20%; }
 #rules-section-3 ul {
+  width: 79%;
+  display: inline-block;
+  vertical-align: top; }
+
+#rules-section-4 img {
+  width: 20%; }
+#rules-section-4 ul {
   width: 79%;
   display: inline-block;
   vertical-align: top; }

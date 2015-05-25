@@ -23,6 +23,11 @@ public class User implements Serializable {
     private String userName;
     private String password;
 
+    public User(){
+        if(this.userStatus == null){
+            this.userStatus = UserStatus.UNNAPPROVED;
+        }
+    }
 
     public UserStatus getUserStatus() {
         return userStatus;

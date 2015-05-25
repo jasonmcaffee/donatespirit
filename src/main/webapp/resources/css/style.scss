@@ -2,6 +2,7 @@
 @import "reset";
 @import "form";
 @import "approvals";
+@import "users";
 
 html{
     width:100%;
@@ -144,6 +145,21 @@ header{
         vertical-align: top;
     }
 }
+
+#rules-section-4{
+    @extend %main-section;
+    img{
+        //float:left;
+        //margin-right:10px;
+        width:20%;
+    }
+    ul{
+        width:79%;
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+
 
 #strategy-section{
     @extend %main-section;

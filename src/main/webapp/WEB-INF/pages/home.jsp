@@ -34,12 +34,12 @@
 
         <ul>
             <li>Use both attacks in war.</li><!--
-            --><li>First Attack: Attack your exact opposite. eg if you are 12, attack 12</li><!--
-            --><li>Second Attack: Attack the hardest base you are certain you can 3 star.</li><!--
-            --><li>Second Attack: Only attack a base that has been attacked.</li><!--
-            --><li>8 hours before war ends, you can attack a base which has not been attacked (so long as you can 3 star)</li><!--
+            --><li>TH9 First Attack: Attack a TH9 you think you can 3 or 2 (try for 3 if you can)</li><!--
+            --><li>TH9 Second Attack: Attack a base which has already been attacked, unless we are 3 hours into the war, in which case you can attack any base within range.</li><!--
+            --><li>TH8 and below First Attack: Attack your exact opposite. eg if you are 12, attack 12</li><!--
+            --><li>TH8 Second Attack: Attack the hardest base you are certain you can 3 star.</li><!--
+            --><li>TH8 Second Attack: Only attack a base that has been attacked, unless it is 8 hours before the war ends, in which case you can attack any base within range.</li><!--
             --><li>Only use strong troops during war.</li><!--
-            --><li>If you need a break from war you can go to Donate Spirit 2.</li><!--
             --><li>Read the guide found on the Strategy link.</li><!--
             --><li>You can trade your first target with another member, but you must post a message on the message board stating that you are trading.</li><!--
             --><li></li><!--
@@ -49,19 +49,32 @@
         <img src="resources/img/witch.png"/>
     </section>
 
+    <section id="rules-section-4">
+        <h1>War CC Donations</h1>
+        <img src="resources/img/lavahound.png"/>
+        <ul>
+            <li>There are 4 alternating groups of members who are responsible for filling War cc.</li><!--
+            --><li>At the beginning of each war, the war coordinator will send a clan mail indicating who is responsible for donating.</li><!--
+            --><li>If a mail is not sent, everyone is responsible for donating.</li><!--
+            --><li>Add your name to the Clan Grouping Online Spreadsheet when you join.</li><!--
+            --><li></li><!--
+            --><li></li><!--
+            --><li></li>
+        </ul>
+    </section>
+
     <section id="rules-section-3">
         <h1>New Member Requirements</h1>
-        <img src="resources/img/wizard.png"/>
+
         <ul>
-            <li>120 war hero</li><!--
-            --><li>lvl 3 drags or lvl 2 pekkas or lvl 4 hogs</li><!--
-            --><li>Must be highly active. if you aren't playing at least an hour a day, don't bother joining.</li><!--
+            <li>Must be highly active. if you aren't playing at least an hour a day, don't bother joining.</li><!--
             --><li>5000+ friend in need.</li><!--
             --><li></li><!--
             --><li></li><!--
             --><li></li><!--
             --><li></li>
         </ul>
+        <img src="resources/img/pekka.png"/>
     </section>
 
     <%@ include file="/WEB-INF/pages/shared/account.jsp" %>

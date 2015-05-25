@@ -7,10 +7,15 @@
 </head>
 <body>
   <%@ include file="/WEB-INF/pages/shared/topbanner.jsp" %>
-  <section id="members-section">
+  <section id="users-section">
+
+    <h3>War Donation Grouping</h3>
+    <a href="https://docs.google.com/spreadsheets/d/1bPnU8zqfPpyvdV1hWvDoYIIPkOyjTdnjCOposh0EBbU/edit?usp=sharing">Clan Grouping Online Spreadsheet</a>
+
+    <br/>
+    <br/>
+
     <h3>Registered Users</h3>
-
-
 
     <c:forEach var="user" items="${users}">
       <div>

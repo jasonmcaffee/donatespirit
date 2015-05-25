@@ -1,0 +1,12 @@
+#users-section{
+  @extend %main-section;
+
+  form{
+    display:inline-block;
+    background: transparent;
+    label{
+      color: black;
+    }
+
+  }
+}

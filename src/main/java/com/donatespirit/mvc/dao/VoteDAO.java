@@ -36,6 +36,7 @@ public class VoteDAO {
                 "from VoteTopic vt " +
                 "left outer join UserVote on vt.id = UserVote.voteTopicId " +
                 "join User on vt.creatorUserId = User.id " +
+                "where expiresDate > NOW() " +
                 "group by vt.id " +
                 "order by vt.date desc ").addEntity(VoteTopic.class).setMaxResults(500).list();
 

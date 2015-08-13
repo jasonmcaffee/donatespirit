@@ -15,6 +15,7 @@
   </form>
 
   <h2>Vote on Topics</h2>
+  <p>Votes will be displayed for 5 days after their creation</p>
   <div class="vote-topics">
 
     <c:forEach items="${voteTopics}" var="vt">
@@ -25,7 +26,7 @@
         <li class="vote-count">Votes No: ${vt.noVotes}</li>
         <li class="vote-count">Total Votes: ${vt.totalVotes}</li>
         <%--<li>${vt.date}</li>--%>
-        <%--<li>${vt.expiresDate}</li>--%>
+        <li>This vote ends on: ${vt.expiresDate}</li>
         <li class="vote">
           <form class="cast-vote-form">
             <button type="submit" class="vote-yes">Yes</button>

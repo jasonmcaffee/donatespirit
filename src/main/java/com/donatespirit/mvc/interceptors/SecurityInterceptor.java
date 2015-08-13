@@ -42,14 +42,11 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
             request.getRequestDispatcher("/error").forward(request, response);
             return false;
         }else{
-            if( user.getUserStatus() != UserStatus.APPROVED && user.getUserStatus() != UserStatus.REJECTED){
+            if( user.getUserStatus() != UserStatus.APPROVED ){ //&& user.getUserStatus() != UserStatus.REJECTED
                 //reload the isApproved status, so that the user can view the page as soon as approval occurs.
                 user.setUserStatus( userDAO.getUserByUserId(user.getId()).getUserStatus());
                 if(user.getUserStatus() != UserStatus.APPROVED){
                     System.out.println("user is not approved");
-                    //request.getSession().invalidate(); <-- if we do this then
-
-                    //response.sendRedirect("http://donatespirit.com/error");//
                     request.setAttribute("notApproved", true);
                     request.getRequestDispatcher("/error").forward(request, response);
                     return false;

@@ -13,16 +13,12 @@
         <ul>
             <li>Donate 1 troop for every 2 that you receive.</li><!--
             --><li>If you get kicked you must earn your way back by donating in Donate Spirit 2.</li><!--
-            --><li>Donate 1000 troops for elder.</li><!--
-            --><li>Recruit 2 members to keep elder.</li><!--
+            --><li>Donate and receive 2000 troops for elder.</li><!--
             --><li>Co is earned through trust. Other Cos must vote to have you promoted.</li><!--
             --><li>Keep cussing to a minimum.</li><!--
             --><li>Be nice. Use constructive criticism. Mean people get kicked.</li><!--
-            --><li>If you leave, you must stay gone for a week, and you will lose any rank.</li><!--
-            --><li>Don't talk about leaving, just leave. If you talk about leaving you will be kicked.</li><!--
-            --><li>If you try to poach members when you leave, you will be banned.</li><!--
             --><li>Only Cos can kick or promote.</li><!--
-            --><li></li><!--
+            --><li>Second accounts are only allowed if the clan votes yes, although it is typically discouraged.</li><!--
             --><li></li><!--
             --><li></li><!--
             --><li></li>
@@ -49,19 +45,19 @@
         <img src="resources/img/witch.png"/>
     </section>
 
-    <section id="rules-section-4">
-        <h1>War CC Donations</h1>
-        <img src="resources/img/lavahound.png"/>
-        <ul>
-            <li>There are 4 alternating groups of members who are responsible for filling War cc.</li><!--
-            --><li>At the beginning of each war, the war coordinator will send a clan mail indicating who is responsible for donating.</li><!--
-            --><li>If a mail is not sent, everyone is responsible for donating.</li><!--
-            --><li>Add your name to the Clan Grouping Online Spreadsheet when you join.</li><!--
-            --><li></li><!--
-            --><li></li><!--
-            --><li></li>
-        </ul>
-    </section>
+    <%--<section id="rules-section-4">--%>
+        <%--<h1>War CC Donations</h1>--%>
+        <%--<img src="resources/img/lavahound.png"/>--%>
+        <%--<ul>--%>
+            <%--<li>There are 4 alternating groups of members who are responsible for filling War cc.</li><!----%>
+            <%----><li>At the beginning of each war, the war coordinator will send a clan mail indicating who is responsible for donating.</li><!----%>
+            <%----><li>If a mail is not sent, everyone is responsible for donating.</li><!----%>
+            <%----><li>Add your name to the Clan Grouping Online Spreadsheet when you join. Link can be found in the <a href="registeredUsers">Users</a> section.</li><!----%>
+            <%----><li></li><!----%>
+            <%----><li></li><!----%>
+            <%----><li></li>--%>
+        <%--</ul>--%>
+    <%--</section>--%>
 
     <section id="rules-section-3">
         <h1>New Member Requirements</h1>
